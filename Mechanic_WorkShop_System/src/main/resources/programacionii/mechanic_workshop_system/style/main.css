@@ -14,5 +14,10 @@
      -fx-text-fill: -tab-text-color ;
    }
    
+   #btnAgendaClientes{
+       -fx-background-color: #009999; 
+   }
+   
+   
  
 }
