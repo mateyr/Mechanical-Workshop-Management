@@ -8,16 +8,14 @@ package programacionii.mechanic_workshop_system.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.StackPane;
 import programacionii.mechanic_workshop_system.App;
 
 /**
@@ -32,6 +30,8 @@ public class MainController implements Initializable
     public TabPane tbOptions;
     @FXML
     public Button btnAgenda_Clientes;
+    @FXML
+    public Button btnConfi;
     
     
 
@@ -41,7 +41,7 @@ public class MainController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-         addTab("Weclome");
+         addTab("Welcome");
     }    
     
     private static Parent loadFXML(String fxml) throws IOException   // Este metodo lo he agregado por que en esta clase lo usaremos bastante
@@ -59,7 +59,7 @@ public class MainController implements Initializable
     private void addTab(String Title)
     {
         Tab firstTab = new Tab(Title);
-        firstTab.setStyle("-tab-text-color:  #1073c5;");
+        firstTab.setStyle("-tab-text-color:  #009999;");  //Second Option For color : #1073c5
         tbOptions.getTabs().add(firstTab); 
     }
     
