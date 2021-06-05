@@ -14,17 +14,18 @@
      -fx-text-fill: -tab-text-color ;
    }
    
-   #btnAgendaClientes{-fx-background-color: #009999;}
+   #btnAgendaClientes{-fx-background-color: #1073c5;
+   }
    
-   #btnOrdenTrabajo{-fx-background-color: #009999;}
+   #btnOrdenTrabajo{-fx-background-color: #1073c5;}
    
-   #btnCompras{-fx-background-color: #009999;}
+   #btnCompras{-fx-background-color: #1073c5;}
    
-   #btnAticulos{-fx-background-color: #009999;}
+   #btnAticulos{-fx-background-color: #1073c5;}
    
-   #btnFactura{-fx-background-color: #009999;}
+   #btnFactura{-fx-background-color: #1073c5;}
    
-   #btnConfiguraciones{-fx-background-color: #009999;}
+   #btnConfiguraciones{-fx-background-color: #1073c5;}
    
    
  
