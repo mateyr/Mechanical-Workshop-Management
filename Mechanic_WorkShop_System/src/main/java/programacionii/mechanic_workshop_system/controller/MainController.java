@@ -8,20 +8,27 @@ package programacionii.mechanic_workshop_system.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.Animation;
+import javafx.animation.RotateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point3D;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.PerspectiveCamera;
+import javafx.scene.PointLight;
 import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Button;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
-import static javafx.scene.paint.Color.color;
-import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import programacionii.mechanic_workshop_system.App;
 
 /**
@@ -49,6 +56,8 @@ public class MainController implements Initializable
     
     private String selectedStyle = "-fx-background-color: #095594;-fx-border-width:4;-fx-background-insets: 0,6;-fx-background-radius: 6px, 0px;";
     private String normalStyle = "-fx-border-color: #1073c5;";
+    @FXML
+    public VBox vBoxCar;
 
     /**
      * Initializes the controller class.
@@ -56,8 +65,6 @@ public class MainController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-         addTab("Welcome");
-        
     }    
     
     public static Parent loadFXML(String fxml) throws IOException   // Este metodo lo he agregado por que en esta clase lo usaremos bastante
@@ -75,7 +82,6 @@ public class MainController implements Initializable
     public void addTab(String Title)
     {
         Tab firstTab = new Tab(Title);
-        firstTab.setStyle("-tab-text-color:  #1073c5");  //Second Option For color : #1073c5
         tbOptions.getTabs().add(firstTab); 
     }
 
@@ -169,10 +175,35 @@ public class MainController implements Initializable
     {
         btnFactura.setStyle(normalStyle);
     }
+    
+    /*private void load3D()
+    {
+        PointLight light1 = new PointLight();
+        light1.setTranslateZ(-500);
 
+        Node model = Importer().load(getClass().getResource("obj-model/cyborg.obj").toExternalForm());
+        model.setScaleX(150.0);
+        model.setScaleY(150.0);
+        model.setScaleZ(150.0);
 
-  
+        Group root = new Group(model, light1);
 
+        Scene scene = new Scene(root, 1280, 768, true, SceneAntialiasing.BALANCED);
+
+        PerspectiveCamera camera = new PerspectiveCamera();
+        camera.setTranslateX(scene.getWidth() / -2.0);
+        camera.setTranslateY(scene.getHeight() / -2.0);
+
+        RotateTransition rt = new RotateTransition(Duration.seconds(10), model);
+        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setFromAngle(0);
+        rt.setToAngle(360);
+        rt.setAxis(new Point3D(0, 1, 0));
+        rt.play();
+
+        scene.setFill(Color.CORNFLOWERBLUE);
+        scene.setCamera(camera);
+    }*/
    
 
  

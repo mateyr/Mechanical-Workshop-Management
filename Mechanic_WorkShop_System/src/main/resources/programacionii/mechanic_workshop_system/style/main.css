@@ -4,18 +4,16 @@
 
 .mainFxmlClass {
 
-    .root 
-    {
-    -tab-text-color: -fx-text-base-color ;
-    }
-
-   .tab-label 
+   .root 
    {
-     -fx-text-fill: -tab-text-color ;
+      -tab-text-color: -fx-text-base-color ;
+   }
+
+   .tab-label{
+       -fx-text-fill:  #1073c5;
    }
    
-   #btnAgendaClientes{-fx-background-color: #1073c5;
-   }
+   #btnAgendaClientes{-fx-background-color: #1073c5;}
    
    #btnOrdenTrabajo{-fx-background-color: #1073c5;}
    
