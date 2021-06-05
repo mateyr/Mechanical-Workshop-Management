@@ -1,0 +1,30 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+   .root 
+   {
+      -tab-text-color: -fx-text-base-color ;
+   }
+
+   .tab-label{
+       -fx-text-fill:  #1073c5;
+   }
+   
+   #btnAgendaClientes{-fx-background-color: #1073c5;}
+   
+   #btnOrdenTrabajo{-fx-background-color: #1073c5;}
+   
+   #btnCompras{-fx-background-color: #1073c5;}
+   
+   #btnAticulos{-fx-background-color: #1073c5;}
+   
+   #btnFactura{-fx-background-color: #1073c5;}
+   
+   #btnConfiguraciones{-fx-background-color: #1073c5;}
+   
+   
+ 
+}
