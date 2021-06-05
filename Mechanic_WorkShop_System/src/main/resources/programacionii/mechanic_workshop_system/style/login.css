@@ -4,4 +4,9 @@
 
 .mainFxmlClass {
 
+    
 }
+
+<fx:define>
+   <Image fx:id="btnAceptar" url="../assets/logging/imageEnterButton.png" />
+</fx:define>
