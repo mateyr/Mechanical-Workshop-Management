@@ -20,17 +20,19 @@ import javafx.scene.control.TextField;
  *
  * @author UZIEL
  */
-public class AgendaClientesController implements Initializable
+public class AgendaClienteController implements Initializable
 {
+
+    @FXML
+    public Button btnBucar;
+    @FXML
+    public TextField txtPalabra;
+    @FXML
     public TableView<?> tblClientes;
     @FXML
     public TableColumn<?, ?> clmNombre;
     @FXML
     public TableColumn<?, ?> clmApellido;
-    @FXML
-    public Button btnBuscar;
-    @FXML
-    public TextField txtPalabra;
 
     /**
      * Initializes the controller class.
@@ -42,7 +44,7 @@ public class AgendaClientesController implements Initializable
     }    
 
     @FXML
-    public void btnBuscarAction(ActionEvent event)
+    public void btnBuscar(ActionEvent event)
     {
     }
     
