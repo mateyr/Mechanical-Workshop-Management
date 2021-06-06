@@ -7,8 +7,10 @@ package programacionii.mechanic_workshop_system.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,15 +22,15 @@ import javafx.scene.control.TextField;
  */
 public class AgendaClientesController implements Initializable
 {
-
-    @FXML
-    public TextField txtBuscar;
-    @FXML
     public TableView<?> tblClientes;
     @FXML
     public TableColumn<?, ?> clmNombre;
     @FXML
     public TableColumn<?, ?> clmApellido;
+    @FXML
+    public Button btnBuscar;
+    @FXML
+    public TextField txtPalabra;
 
     /**
      * Initializes the controller class.
@@ -38,5 +40,10 @@ public class AgendaClientesController implements Initializable
     {
         // TODO
     }    
+
+    @FXML
+    public void btnBuscarAction(ActionEvent event)
+    {
+    }
     
 }
