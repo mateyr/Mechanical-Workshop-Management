@@ -7,7 +7,11 @@ package programacionii.mechanic_workshop_system.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,6 +20,15 @@ import javafx.fxml.Initializable;
  */
 public class AgendaClientesController implements Initializable
 {
+
+    @FXML
+    public TextField txtBuscar;
+    @FXML
+    public TableView<?> tblClientes;
+    @FXML
+    public TableColumn<?, ?> clmNombre;
+    @FXML
+    public TableColumn<?, ?> clmApellido;
 
     /**
      * Initializes the controller class.

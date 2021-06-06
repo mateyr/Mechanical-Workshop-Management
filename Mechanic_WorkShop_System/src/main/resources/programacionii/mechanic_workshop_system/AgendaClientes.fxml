@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="programacionii.mechanic_workshop_system.controller.AgendaClientesController">
+<AnchorPane id="AnchorPane" prefHeight="505.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.AgendaClientesController">
    <children>
-      <TableView fx:id="tblAgendaClientes" layoutX="16.0" layoutY="84.0" prefHeight="302.0" prefWidth="574.0">
-        <columns>
-          <TableColumn fx:id="clmNombre" prefWidth="286.4000053405762" text="Nombre" />
-          <TableColumn prefWidth="283.199951171875" text="Apellido" />
-        </columns>
-      </TableView>
-      <Label layoutX="14.0" layoutY="14.0" text="Cliente:" />
-      <TextField fx:id="txtBuscar" layoutX="14.0" layoutY="38.0" prefHeight="26.0" prefWidth="574.0" />
+      <SplitPane dividerPositions="0.1963696369636964" layoutX="7.0" layoutY="6.0" orientation="VERTICAL" prefHeight="486.0" prefWidth="642.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="109.0" prefWidth="642.0">
+               <children>
+                  <TextField fx:id="txtBuscar" layoutX="14.0" layoutY="55.0" prefHeight="26.0" prefWidth="615.0" />
+                  <Label layoutX="14.0" layoutY="28.0" text="Buscar:" />
+                  <Label layoutX="255.0" layoutY="19.0" text="CLIENTES" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="642.0">
+               <children>
+                  <TableView fx:id="tblClientes" layoutX="15.0" layoutY="7.0" prefHeight="365.0" prefWidth="615.0">
+                    <columns>
+                      <TableColumn fx:id="clmNombre" minWidth="0.0" prefWidth="284.800066947937" text="Nombre" />
+                      <TableColumn fx:id="clmApellido" prefWidth="329.5999450683594" text="Apellido" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>
