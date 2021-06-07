@@ -18,6 +18,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -33,37 +35,9 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @FXML
     public Button btnNewOrdenConDatos;
     @FXML
-    public TableView<?> tblRevisionVehiculo1;
+    public Button btnSaveOrden;
     @FXML
-    public TableColumn<?, ?> tableColumnDato1;
-    @FXML
-    public TableColumn<?, ?> tableColumnSi1;
-    @FXML
-    public TableColumn<?, ?> tableColumnNo1;
-    @FXML
-    public TableView<?> tblRevisionVehiculo2;
-    @FXML
-    public TableColumn<?, ?> tableColumnDato2;
-    @FXML
-    public TableColumn<?, ?> tableColumnSi2;
-    @FXML
-    public TableColumn<?, ?> tableColumnNo2;
-    @FXML
-    public TableView<?> tblRevisionVehiculo3;
-    @FXML
-    public TableColumn<?, ?> tableColumnDato3;
-    @FXML
-    public TableColumn<?, ?> tableColumnSi3;
-    @FXML
-    public TableColumn<?, ?> tableColumnNo3;
-    @FXML
-    public TableView<?> tblRevisionVehiculo4;
-    @FXML
-    public TableColumn<?, ?> tableColumnDato4;
-    @FXML
-    public TableColumn<?, ?> tableColumnSi4;
-    @FXML
-    public TableColumn<?, ?> tableColumnNo4;
+    public Button btnCancelar;
     @FXML
     public TextField txtCodCliente;
     @FXML
@@ -109,9 +83,11 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @FXML
     public ComboBox<?> cmbModelo;
     @FXML
+    public ComboBox<?> cmbColorVehiculo;
+    @FXML
     public Spinner<?> spnKms;
     @FXML
-    public TextField txtColor;
+    public TextField txtChasis;
     @FXML
     public TextArea txtARevisar;
     @FXML
@@ -131,6 +107,18 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @FXML
     public TableView<?> tblProductos;
     @FXML
+    public TableColumn<?, ?> tblColumnCodigo;
+    @FXML
+    public TableColumn<?, ?> tblColumnDescripcion;
+    @FXML
+    public TableColumn<?, ?> tblColumnPrecio;
+    @FXML
+    public TableColumn<?, ?> tblColumnSubtotal;
+    @FXML
+    public TableColumn<?, ?> tblColumnDescuento;
+    @FXML
+    public TableColumn<?, ?> tblColumnTotal;
+    @FXML
     public TextField txtSubTotal;
     @FXML
     public TextField txtDto;
@@ -140,6 +128,12 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public TextField txtIVA;
     @FXML
     public TextField txtTotal;
+    @FXML
+    public TextField txtMO;
+    @FXML
+    public TableColumn<?, ?> tblColumnCantidad;
+    @FXML
+    public Button btnAddProducto;
 
     /**
      * Initializes the controller class.
@@ -147,8 +141,19 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-    }    
+        editFuntionTableView();
+        //addImageButtons();
+    }
+    
+    private void editFuntionTableView() {
+        tblColumnCodigo.setReorderable(false);
+        tblColumnDescripcion.setReorderable(false);
+        tblColumnCantidad.setReorderable(false);
+        tblColumnPrecio.setReorderable(false);
+        tblColumnSubtotal.setReorderable(false);
+        tblColumnDescuento.setReorderable(false);
+        tblColumnTotal.setReorderable(false);
+    }
 
     @FXML
     public void btnPrintAction(ActionEvent event) {
@@ -163,11 +168,30 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     }
 
     @FXML
+    public void btnSaveOrdenAction(ActionEvent event) {
+    }
+
+    @FXML
+    public void btnCancelarAction(ActionEvent event) {
+    }
+
+    @FXML
     public void btnSugerenciaClienteAction(ActionEvent event) {
     }
 
     @FXML
     public void btnSugereciaVehiculoAction(ActionEvent event) {
     }
+
+    @FXML
+    public void btnAddProductoAction(ActionEvent event) {
+    }
     
+    private void addImageButtons() {
+        URL linkPrintImage = getClass().getResource("/img/printer.png");
+        
+        Image imagenPrint = new Image(linkPrintImage.toString(), 32, 32, false, true);
+        
+        btnPrint.setGraphic((new ImageView(imagenPrint)));
+    }
 }

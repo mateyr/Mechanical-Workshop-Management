@@ -15,7 +15,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -60,9 +59,12 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -77,120 +79,101 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="18.0" prefWidth="117.0" text="Revisar: ">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="126.0" text="Codigo: " GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextArea fx:id="txtARevisar" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="6" GridPane.rowIndex="1">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="117.0" text="Descripcion: " GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
-                        </TextArea>
-                        <TextField fx:id="txtPresupuesto" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="2">
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="147.0" text="Cantidad: " GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="153.0" text="Descuento: " GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="157.0" text="Precio: " GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="128.0" text="Total: " GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="txtCodProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="214.0" text="Presupuesto: " GridPane.columnSpan="2" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="126.0" text="Codigo: " GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="117.0" text="Descripcion: " GridPane.rowIndex="4">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="147.0" text="Cantidad: " GridPane.rowIndex="5">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="153.0" text="Descuento: " GridPane.rowIndex="6">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="157.0" text="Precio: " GridPane.rowIndex="7">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="128.0" text="Total: " GridPane.rowIndex="8">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
-                        <TextField fx:id="txtCodProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                        <TextField fx:id="txtDescpProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtDescpProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                        <TextField fx:id="txtCantidadProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtCantidadProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                        <TextField fx:id="txtDtoProducto" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtDtoProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                        <TextField fx:id="txtPrecioProducto" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtPrecioProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7">
+                        <TextField fx:id="txtTotalProductos" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtTotalProductos" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="8">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TableView fx:id="tblProductos" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="3" GridPane.rowSpan="6">
+                        <TableView fx:id="tblProductos" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="6" GridPane.rowIndex="5" GridPane.rowSpan="6">
                           <columns>
-                            <TableColumn prefWidth="46.39996415376663" text="C1" />
-                            <TableColumn minWidth="0.0" prefWidth="49.600032806396484" text="C2" />
-                              <TableColumn prefWidth="44.0" text="C3" />
-                              <TableColumn prefWidth="50.4000244140625" text="C4" />
-                              <TableColumn prefWidth="49.599853515625" text="C5" />
-                              <TableColumn prefWidth="56.80006408691406" text="C6" />
+                            <TableColumn fx:id="tblColumnCodigo" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Codigo" />
+                            <TableColumn fx:id="tblColumnDescripcion" editable="false" minWidth="0.0" prefWidth="138.0" sortable="false" text="Descripcion" />
+                              <TableColumn fx:id="tblColumnCantidad" editable="false" minWidth="0.0" prefWidth="75.0" sortable="false" text="Cantidad" />
+                              <TableColumn fx:id="tblColumnPrecio" editable="false" prefWidth="75.0" sortable="false" text="Precio" />
+                              <TableColumn fx:id="tblColumnSubtotal" editable="false" prefWidth="75.0" sortable="false" text="Sub total" />
+                              <TableColumn fx:id="tblColumnDescuento" editable="false" prefWidth="75.0" sortable="false" text="Descuento" />
+                              <TableColumn fx:id="tblColumnTotal" editable="false" prefWidth="75.0" sortable="false" text="Total" />
                           </columns>
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TableView>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="226.0" text="SubTotal: " GridPane.columnSpan="2" GridPane.rowIndex="10">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="226.0" text="SubTotal: " GridPane.rowIndex="13">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="267.0" text="Dto.: " GridPane.columnSpan="2" GridPane.rowIndex="11">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="267.0" text="Dto.: " GridPane.rowIndex="14">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="SubTotal Neto: " GridPane.columnSpan="2" GridPane.rowIndex="12">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="SubTotal Neto: " GridPane.rowIndex="15">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="IVA: " GridPane.columnSpan="2" GridPane.rowIndex="13">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="IVA: " GridPane.rowIndex="16">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="591.0" text="CALCULO" GridPane.columnSpan="6" GridPane.rowIndex="9">
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="591.0" text="CALCULO" GridPane.columnSpan="6" GridPane.rowIndex="11">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -198,32 +181,49 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="236.0" text="Total: " GridPane.columnSpan="2" GridPane.rowIndex="14">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="236.0" text="Total: " GridPane.rowIndex="17">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="txtSubTotal" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="10">
+                        <TextField fx:id="txtSubTotal" prefHeight="26.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="13">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtDto" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="11">
+                        <TextField fx:id="txtDto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="14">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtSubTotalNeto" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="12">
+                        <TextField fx:id="txtSubTotalNeto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="15">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtIVA" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="13">
+                        <TextField fx:id="txtIVA" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="16">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtTotal" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="14">
+                        <TextField fx:id="txtTotal" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="17">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="137.0" text="Mano de obra: " GridPane.rowIndex="12" />
+                        <TextField fx:id="txtMO" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" />
+                        <Button fx:id="btnAddProducto" mnemonicParsing="false" onAction="#btnAddProductoAction" prefHeight="26.0" prefWidth="230.0" text="Agregar producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="214.0" text="Presupuesto: ">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <TextField fx:id="txtPresupuesto" GridPane.columnIndex="1" GridPane.columnSpan="5">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -242,8 +242,8 @@
                      <children>
                         <GridPane prefHeight="265.0">
                            <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.80001983642578" minWidth="10.0" prefWidth="118.80001220703124" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.00001525878906" minWidth="10.0" prefWidth="135.80002746582034" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.80001983642578" minWidth="10.0" prefWidth="120.59999389648438" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.00001525878906" minWidth="10.0" prefWidth="132.60000610351562" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="248.0" minWidth="10.0" prefWidth="106.19997253417972" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.00003051757812" minWidth="10.0" prefWidth="152.39998779296877" />
                            </columnConstraints>
@@ -540,6 +540,9 @@
                                  <GridPane.margin>
                                     <Insets left="5.0" />
                                  </GridPane.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
                               </Button>
                               <ComboBox fx:id="cmbYearVehiculo" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
@@ -551,7 +554,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                              <ComboBox fx:id="cmbColorVehiculo" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -561,7 +564,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Spinner>
-                              <TextField fx:id="txtColor" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                              <TextField fx:id="txtChasis" GridPane.columnIndex="3" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -571,60 +574,59 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </GridPane>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="102.5999755859375" minWidth="10.0" prefWidth="100.19998168945312" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="67.4000244140625" minWidth="10.0" prefWidth="45.800018310546875" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="117.0" text="Revisar: ">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <TextArea fx:id="txtARevisar" prefHeight="39.0" prefWidth="518.0" GridPane.columnSpan="7" GridPane.rowIndex="1" GridPane.rowSpan="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextArea>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </GridPane>
                      </children>
                   </VBox>
                </center>
-               <bottom>
-                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                     <BorderPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </BorderPane.margin>
-                     <children>
-                        <TableView fx:id="tblRevisionVehiculo1" prefHeight="200.0" prefWidth="275.0">
-                          <columns>
-                            <TableColumn fx:id="tableColumnDato1" prefWidth="197.60003644227982" />
-                            <TableColumn fx:id="tableColumnSi1" prefWidth="35.0" text="Si" />
-                              <TableColumn fx:id="tableColumnNo1" prefWidth="35.0" text="No" />
-                          </columns>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </TableView>
-                        <TableView fx:id="tblRevisionVehiculo2" prefHeight="200.0" prefWidth="275.0">
-                           <columns>
-                              <TableColumn fx:id="tableColumnDato2" prefWidth="197.60003644227982" />
-                              <TableColumn fx:id="tableColumnSi2" prefWidth="35.0" text="Si" />
-                              <TableColumn fx:id="tableColumnNo2" prefWidth="35.0" text="No" />
-                           </columns>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </TableView>
-                        <TableView fx:id="tblRevisionVehiculo3" prefHeight="200.0" prefWidth="275.0">
-                           <columns>
-                              <TableColumn fx:id="tableColumnDato3" prefWidth="197.60003644227982" />
-                              <TableColumn fx:id="tableColumnSi3" prefWidth="35.0" text="Si" />
-                              <TableColumn fx:id="tableColumnNo3" prefWidth="35.0" text="No" />
-                           </columns>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </TableView>
-                        <TableView fx:id="tblRevisionVehiculo4" prefHeight="200.0" prefWidth="275.0">
-                           <columns>
-                              <TableColumn fx:id="tableColumnDato4" prefWidth="197.60003644227982" />
-                              <TableColumn fx:id="tableColumnSi4" prefWidth="35.0" text="Si" />
-                              <TableColumn fx:id="tableColumnNo4" prefWidth="35.0" text="No" />
-                           </columns>
-                           <HBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </HBox.margin>
-                        </TableView>
-                     </children>
-                  </HBox>
-               </bottom>
             </BorderPane>
          </center>
+         <bottom>
+            <FlowPane alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="1239.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnSaveOrden" mnemonicParsing="false" onAction="#btnSaveOrdenAction" text="Guardar orden">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelarAction" text="Cancelar">
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+            </FlowPane>
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
