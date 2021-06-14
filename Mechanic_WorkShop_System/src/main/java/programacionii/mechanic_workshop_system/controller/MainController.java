@@ -22,19 +22,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-import programacionii.mechanic_workshop_system.App;
-import javafx.stage.Stage;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Box;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.TextAlignment;
-import javafx.util.Duration;
 import programacionii.mechanic_workshop_system.App;
 
 /**
@@ -159,9 +151,19 @@ public class MainController implements Initializable
     }
     
     @FXML
-    public void btnComprasAction(ActionEvent event)
+    public void btnComprasAction(ActionEvent event) throws IOException
     {
-        //Se debe abrir la Scene correspondiente
+        Scene scene = new Scene(loadFXML("ValidateCompra_Y_GastoFXML"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setX(142); //Valor x para centrar el frame.
+        stage.setY(39); //Valor y para centrar el frame.
+        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
+        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
+        stage.showAndWait();
+    
     }
     
     @FXML

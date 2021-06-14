@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -23,18 +22,22 @@ import programacionii.mechanic_workshop_system.App;
  *
  * @author MateyR
  */
-public class LoginController implements Initializable
+public class LoginController implements Initializable 
 {
+
     @FXML
     public Button btnIngresar;
 
     /**
      * Initializes the controller class.
+     *
+     * @param url
+     * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb)
+    public void initialize(URL url, ResourceBundle rb) 
     {
-        // TODO
+
     }    
 
     @FXML
