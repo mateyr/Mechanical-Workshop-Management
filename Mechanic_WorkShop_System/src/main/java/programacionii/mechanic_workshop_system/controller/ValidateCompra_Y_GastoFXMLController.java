@@ -10,7 +10,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -58,11 +62,23 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
 
     @FXML
     public void btnOkAction(ActionEvent event) throws IOException {
-        
+        Scene scene = new Scene(loadFXML("Compras_Y_GastosFXML"), 500, 300);
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setX(511);
+        stage.setY(244);
+        stage.showAndWait();
     }
 
     @FXML
     public void btnCancelarAction(ActionEvent event) {
+        
     }
-    
+ 
+    public static Parent loadFXML(String fxml) throws IOException   // Este metodo lo he agregado por que en esta clase lo usaremos bastante
+    {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load();
+    }
 }
