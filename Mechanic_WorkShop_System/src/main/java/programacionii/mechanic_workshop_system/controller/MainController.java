@@ -28,6 +28,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import programacionii.mechanic_workshop_system.App;
 
@@ -105,9 +106,13 @@ public class MainController implements Initializable
     }
 
     @FXML
-    public void btnOrdenTrabajoAction(ActionEvent event)
+    public void btnOrdenTrabajoAction(ActionEvent event) throws IOException
     {
-        //Aqui de debe llamar la Scene correspondiente
+        Scene scene = new Scene(loadFXML("OrdenDeTrabajoFXML"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.showAndWait();
     }
     
     @FXML

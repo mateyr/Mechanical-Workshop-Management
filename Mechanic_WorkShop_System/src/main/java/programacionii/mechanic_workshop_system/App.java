@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.security.Key;
 
 /**
  * JavaFX App
@@ -20,6 +21,11 @@ public class App extends Application {
         scene = new Scene(loadFXML("Login"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        stage.setX(142); //Valor x para centrar el frame.
+        stage.setY(39); //Valor y para centrar el frame.
+        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
+        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
     }
 
     static void setRoot(String fxml) throws IOException {
