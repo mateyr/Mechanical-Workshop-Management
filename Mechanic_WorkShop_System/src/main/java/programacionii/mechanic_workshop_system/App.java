@@ -7,17 +7,26 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.stage.StageStyle;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
+    private double xOffset = 0;
+    private double yOffset = 0;
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("Login"), 640, 480);
+        
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.initStyle(StageStyle.UNDECORATED);
+        
         stage.setScene(scene);
         stage.show();
     }

@@ -1,59 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.LoginController">
-    <stylesheets>
-        <URL value="@/programacionii/mechanic_workshop_system/style/login.css" />
-    </stylesheets>
-   <children>
-      <SplitPane dividerPositions="0.519" layoutX="159.0" layoutY="114.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <ImageView fitHeight="498.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="140.0" layoutY="172.0" size="75" text="" />
+            <Label layoutX="76.0" layoutY="228.0" text="Bienvenido!" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="76.0" layoutY="191.0" text="Hola," textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="141.0" layoutY="270.0" text="A tu cuenta" textFill="WHITE" />
+            <Label layoutX="21.0" layoutY="437.0" text="(c) 2021-2021 JAVAFX-SOFTWARE - Ingenieria de Sistemas" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="11.9" />
+               </font>
+            </Label>
+            <Label layoutX="12.0" layoutY="470.0" text="https://github.com/mateyr/Mechanical-Workshop-Management.git" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="125.0" layoutY="419.0" text="info@softion.net" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="txtUser" layoutX="115.0" layoutY="235.0" promptText="User Name" style="-fx-background-color: trasnparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="txtPass" layoutX="115.0" layoutY="310.0" promptText="Password" style="-fx-background-color: trasnparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="83.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logging/imgUserIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="83.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logging/imgKeyIcon.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnLogging" layoutX="160.0" layoutY="379.0" mnemonicParsing="false" text="Ingresar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Hyperlink fx:id="lblForgot" layoutX="110.0" layoutY="442.0" text="Olvidastes tu Contraseña?" />
+            <ImageView fitHeight="205.0" fitWidth="262.0" layoutX="44.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@assets/logging/imgLogoFinal.jpg" />
+               </image>
+            </ImageView>
+            <Button layoutX="280.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fx:id="btnClose" fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@assets/logging/imgBackgroundLoggin.jpg" />
+                        <Image url="@assets/logging/imgCloseIcon.png" />
                      </image>
                   </ImageView>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Label layoutX="141.0" layoutY="42.0" />
-                  <Label layoutX="39.0" layoutY="42.0" text="Inicio de Sesión">
-                     <font>
-                        <Font name="Dubai Medium" size="36.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="56.0" layoutY="264.0" prefHeight="30.0" prefWidth="200.0" promptText="Usuario:" />
-                  <Label layoutX="83.0" layoutY="94.0" text="Bienvenido de vuelta!! 😊">
-                     <font>
-                        <Font name="Dubai Medium" size="14.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="171.0" fitWidth="200.0" layoutX="56.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@assets/logging/ArteConceptual2.png" />
-                     </image>
-                  </ImageView>
-                  <PasswordField layoutX="56.0" layoutY="322.0" prefHeight="30.0" prefWidth="200.0" promptText="**********" />
-                  <Button fx:id="btnAceptar" layoutX="119.0" layoutY="372.0" mnemonicParsing="false" text="INGRESAR">
-                     <font>
-                        <Font name="Dubai Medium" size="12.0" />
-                     </font></Button>
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
-</AnchorPane>
+               </graphic>
+            </Button>
+         </children></AnchorPane>
+   </right>
+</BorderPane>
