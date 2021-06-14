@@ -107,9 +107,16 @@ public class MainController implements Initializable
     @FXML
     public void  btnAgendaAction(ActionEvent event) throws IOException
     {
-      //Aqui se Debe abrir la Scene que contenga la tabla con los Clientes     
-      //Pienso que esta "NO" deberia agregarse como una Tab
-      addTab("Hello");  // Con fines Didacticos :v   
+        Scene scene = new Scene(loadFXML("AgendaClientes"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setX(142); //Valor x para centrar el frame.
+        stage.setY(39); //Valor y para centrar el frame.
+        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
+        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
+        stage.showAndWait();
     }
     
     @FXML
