@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -172,7 +173,9 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     }
 
     @FXML
-    public void btnCancelarAction(ActionEvent event) {
+    public void btnCancelarAction(ActionEvent event) 
+    {
+       ((Node)event.getSource()).getScene().getWindow().hide();
     }
 
     @FXML

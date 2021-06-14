@@ -101,7 +101,7 @@
          <center>
             <TabPane fx:id="tbOptions" prefHeight="718.0" prefWidth="1086.0" stylesheets="@style/main.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                <tabs>
-                  <Tab id="tab1" text="Welcome">
+                  <Tab id="tab1">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -126,7 +126,7 @@
                                                 <Font name="System Bold" size="72.0" />
                                              </font>
                                           </Label>
-                                          <VBox fx:id="vBoxCar" prefHeight="475.0" prefWidth="425.0" />
+                                          <VBox prefHeight="475.0" prefWidth="425.0" />
                                        </children>
                                     </VBox>
                                  </center>
@@ -134,6 +134,17 @@
                            </children>
                         </AnchorPane>
                     </content>
+                     <graphic>
+                        <Label fx:id="lblTabName" alignment="CENTER" contentDisplay="RIGHT" text=" Welcome" textAlignment="JUSTIFY" textFill="#0d0d0d">
+                           <graphic>
+                              <Button id="btnCloseTab" fx:id="btnCloseFirstTab" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#btnCloseTabAction" onMouseEntered="#btnCloseFirstTabMouseEntered" onMouseExited="#btnCloseFirstTabMouseExited" prefHeight="14.0" prefWidth="19.0" stylesheets="@style/main.css" text="X" textAlignment="CENTER" textFill="#8c8a8a">
+                                 <font>
+                                    <Font name="System Bold" size="9.0" />
+                                 </font>
+                              </Button>
+                           </graphic>
+                        </Label>
+                     </graphic>
                   </Tab>
                </tabs>
             </TabPane>
