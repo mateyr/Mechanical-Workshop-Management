@@ -6,4 +6,5 @@ module programacionii.mechanic_workshop_system {
     opens programacionii.mechanic_workshop_system to javafx.fxml;
     exports programacionii.mechanic_workshop_system;
     exports programacionii.mechanic_workshop_system.controller;
+    requires com.google.gson;
 }
