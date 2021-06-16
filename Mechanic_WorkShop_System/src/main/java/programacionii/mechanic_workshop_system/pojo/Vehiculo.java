@@ -5,31 +5,29 @@
  */
 package programacionii.mechanic_workshop_system.pojo;
 
-import programacionii.mechanic_workshop_system.enums.MarcaVehiculo;
-import programacionii.mechanic_workshop_system.enums.TipoVehiculo;
-
 /**
  *
  * @author navar
  */
 public class Vehiculo {
-    private int id;//Codigo de vehiculo
-    private int idCliente;//Codigo de dueño del vehiculo
-    private String placa;
-    private String motor;
-    private String vin;
-    private String chasis;
-    private String year;
-    private String kms;
-    private String modelo;
-    private String color;
-    private MarcaVehiculo marcaVehiculo;
-    private TipoVehiculo tipoVehiculo;
+    private int id; //4//Codigo de vehiculo
+    private int idCliente; //4//Codigo de dueño del vehiculo
+    private String placa; //7
+    private String motor; //10
+    private String vin; //17
+    private String chasis; 
+    private String year; //4
+    private String kms; //5
+    private String modelo; //20
+    private String color; //20
+    private String marcaVehiculo; //20
+    private String tipoVehiculo; //20
+    //SIZE = 131
 
     public Vehiculo() {
     }
 
-    public Vehiculo(String placa, String motor, String vin, String chasis, String year, String kms, String modelo, String color, MarcaVehiculo marcaVehiculo, TipoVehiculo tipoVehiculo) {
+        public Vehiculo(String placa, String motor, String vin, String chasis, String year, String kms, String modelo, String color, String marcaVehiculo, String tipoVehiculo) {
         this.placa = placa;
         this.motor = motor;
         this.vin = vin;
@@ -122,19 +120,19 @@ public class Vehiculo {
         this.color = color;
     }
 
-    public MarcaVehiculo getMarcaVehiculo() {
+    public String getMarcaVehiculo() {
         return marcaVehiculo;
     }
 
-    public void setMarcaVehiculo(MarcaVehiculo marcaVehiculo) {
+    public void setMarcaVehiculo(String marcaVehiculo) {
         this.marcaVehiculo = marcaVehiculo;
     }
 
-    public TipoVehiculo getTipoVehiculo() {
+    public String getTipoVehiculo() {
         return tipoVehiculo;
     }
 
-    public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+    public void setTipoVehiculo(String tipoVehiculo) {
         this.tipoVehiculo = tipoVehiculo;
     }
     

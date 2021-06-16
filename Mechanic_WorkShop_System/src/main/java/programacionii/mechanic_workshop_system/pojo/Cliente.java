@@ -10,17 +10,18 @@ package programacionii.mechanic_workshop_system.pojo;
  * @author navar
  */
 public class Cliente {
-    private int id;
-    private String nombreCompleto;
-    private String cedula;
-    private String celular;
-    private String email;
-    private String telefono;
-    private String departamento;
-    private String municipio;
-    private String BoOrColonia;
-    private String direccion;
-    private Vehiculo vehiculo;
+    private int id; //4
+    private String nombreCompleto; //82
+    private String cedula; //16
+    private String celular; //12
+    private String email; //30
+    private String telefono; //12
+    private String departamento; //18
+    private String municipio; //27
+    private String BoOrColonia; //28
+    private String direccion; //50
+    private Vehiculo vehiculo; //131
+    //SIZE = 410
 
     public Cliente() {
     }

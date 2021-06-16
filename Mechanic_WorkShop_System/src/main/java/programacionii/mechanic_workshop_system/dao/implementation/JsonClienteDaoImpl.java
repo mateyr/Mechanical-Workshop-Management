@@ -5,6 +5,7 @@
  */
 package programacionii.mechanic_workshop_system.dao.implementation;
 
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ import programacionii.mechanic_workshop_system.pojo.Cliente;
  * @author navar
  */
 public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
-    private final int SIZE = 0;
+    private final int SIZE = 410;
     private Gson gson;
 
     public JsonClienteDaoImpl() {
@@ -28,7 +29,26 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
 
     @Override
     public Cliente findById(int id) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Cliente c = null;
+        
+        getCustomRandom().getRafD().seek(0);
+        int n = getCustomRandom().getRafD().readInt();
+        
+        if(id <= 0 || id > n) {
+            return null;
+        }
+        
+        long pos = 8 + (id - 1) * SIZE;
+        
+        getCustomRandom().getRafD().seek(pos);
+        int code = getCustomRandom().getRafD().readInt();
+        
+        if(id == code) {
+            c = gson.fromJson(getCustomRandom().getRafD().readUTF(), Cliente.class);
+        }
+        
+        close();
+        return c;
     }
 
     @Override
@@ -43,16 +63,7 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
         getCustomRandom().getRafD().seek(posD);
         
         getCustomRandom().getRafD().writeInt(++k);
-        getCustomRandom().getRafD().writeUTF(t.getNombreCompleto());
-        getCustomRandom().getRafD().writeUTF(t.getCedula());
-        getCustomRandom().getRafD().writeUTF(t.getCelular());
-        getCustomRandom().getRafD().writeUTF(t.getEmail());
-        getCustomRandom().getRafD().writeUTF(t.getTelefono());
-        getCustomRandom().getRafD().writeUTF(t.getDepartamento());
-        getCustomRandom().getRafD().writeUTF(t.getMunicipio());
-        getCustomRandom().getRafD().writeUTF(t.getBoOrColonia());
-        getCustomRandom().getRafD().writeUTF(t.getDireccion());
-        getCustomRandom().getRafD().writeUTF(t.getVehiculo().toString());
+        getCustomRandom().getRafD().writeUTF(gson.toJson(t));
         
         long posH = 8 + (4 * k);
         
@@ -68,12 +79,55 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
 
     @Override
     public int update(Cliente t) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCustomRandom().getRafH().seek(0);
+        int n = getCustomRandom().getRafH().readInt();
+        
+        for (int i = 0; i < n; i++) {
+            long posH = 8 + (i * 8);
+            getCustomRandom().getRafH().seek(posH);
+            
+            int id = getCustomRandom().getRafH().readInt();
+            
+            if(id <= 0) {
+                continue;
+            }
+            
+            if(id == t.getId()) {
+                long posD = getCustomRandom().getRafD().readInt();
+                getCustomRandom().getRafD().seek(posD);
+                getCustomRandom().getRafD().writeUTF(gson.toJson(t));
+                return 0;
+            }
+        }
+        
+        close();
+        return -1;
     }
 
     @Override
     public boolean delete(Cliente t) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        getCustomRandom().getRafH().seek(0);
+        int n = getCustomRandom().getRafH().readInt();
+        
+        for (int i = 0; i < n; i++) {
+            long posH = 8 + (i * 8);
+            getCustomRandom().getRafH().seek(posH);
+            
+            int id = getCustomRandom().getRafH().readInt();
+            
+            if(id <= 0) {
+                continue;
+            }
+            
+            if(id == t.getId()) {
+                getCustomRandom().getRafH().seek(posH);
+                getCustomRandom().getRafH().writeInt(-1);
+                return true;
+            }
+        }
+        
+        close();
+        return false;
     }
 
     @Override
@@ -101,6 +155,7 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
             clientes.add(cliente);
         }
         
+        close();
         return clientes;
     }
     
