@@ -103,8 +103,6 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @FXML
     public TextField txtPrecioProducto;
     @FXML
-    public TextField txtTotalProductos;
-    @FXML
     public TableView<?> tblProductos;
     @FXML
     public TableColumn<?, ?> tblColumnCodigo;
@@ -134,6 +132,8 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public TableColumn<?, ?> tblColumnCantidad;
     @FXML
     public Button btnAddProducto;
+    @FXML
+    public Button btnCalcularTotal;
 
     /**
      * Initializes the controller class.
@@ -142,6 +142,8 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         editFuntionTableView();
+        btnNewOrdenSinDatos.setText("Nueva orden\nSin datos ✖");
+        btnNewOrdenConDatos.setText("Nueva orden\nCon datos ✔");
         //addImageButtons();
     }
     
@@ -187,11 +189,8 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public void btnAddProductoAction(ActionEvent event) {
     }
     
-    private void addImageButtons() {
-        URL linkPrintImage = getClass().getResource("/img/printer.png");
+    @FXML
+    public void btnCalcularTotalAction(ActionEvent event) {
         
-        Image imagenPrint = new Image(linkPrintImage.toString(), 32, 32, false, true);
-        
-        btnPrint.setGraphic((new ImageView(imagenPrint)));
     }
 }
