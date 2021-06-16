@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.LoginController">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="350.0" style="-fx-background-color: #0598ff;" BorderPane.alignment="CENTER">
          <opaqueInsets>
@@ -61,7 +61,7 @@
                   <Image url="@assets/logging/imgKeyIcon.png" />
                </image>
             </ImageView>
-            <Button fx:id="btnLogging" layoutX="143.0" layoutY="377.0" mnemonicParsing="false" style="-fx-background-color: #ffff; -fx-border-color: #0598ff;" text="Ingresar" textFill="#0598ff">
+            <Button fx:id="btnLogging" layoutX="143.0" layoutY="377.0" mnemonicParsing="false" style="-fx-background-color: #ffff; -fx-border-color: #0598ff; -fx-cursor: hand;" text="Ingresar" textFill="#0598ff">
                <font>
                   <Font size="16.0" />
                </font>
@@ -72,7 +72,11 @@
                   <Image url="@assets/logging/imgLogoFinal.jpg" />
                </image>
             </ImageView>
-            <Button layoutX="280.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+            <Button fx:id="btnClose" layoutX="307.0" layoutY="11.0" mnemonicParsing="false" onAction="#btnCloseAction" style="-fx-background-color: #e12828; -fx-cursor: h;" text="X" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </right>
 </BorderPane>
