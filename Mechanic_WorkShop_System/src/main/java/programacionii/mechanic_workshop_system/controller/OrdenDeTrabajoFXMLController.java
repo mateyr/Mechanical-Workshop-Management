@@ -6,6 +6,7 @@
 package programacionii.mechanic_workshop_system.controller;
 
 import enums.Departamentos;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
@@ -29,6 +32,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonClienteDaoImpl;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonPresupuestoOrdenTrabajoDaoImpl;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonVehiculoDaoImpl;
+import programacionii.mechanic_workshop_system.pojo.Cliente;
+import programacionii.mechanic_workshop_system.pojo.OrdenDeTrabajo;
+import programacionii.mechanic_workshop_system.pojo.PresupuestoOrdenDeTrabajo;
+import programacionii.mechanic_workshop_system.pojo.Vehiculo;
 
 /**
  * FXML Controller class
@@ -37,6 +47,9 @@ import javafx.scene.image.ImageView;
  */
 public class OrdenDeTrabajoFXMLController implements Initializable {
 
+    JsonClienteDaoImpl jc;
+    JsonVehiculoDaoImpl jv;
+    JsonPresupuestoOrdenTrabajoDaoImpl jpot;
     @FXML
     public Button btnPrint;
     @FXML
@@ -204,30 +217,26 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         // validar si el txt del numero esta vacio
         if((this.txtCelular.getText()).isEmpty() || (this.txtCelular.getText()).isBlank())
             throw new Exception("El numero celular del cliente es requerido");
-        // convertir el numero
         try
         {
-            int celular = Integer.parseInt((String)this.txtCelular.getText());
+            long cel = Long.parseLong((String)this.txtCelular.getText());
 	}catch(NumberFormatException nfe)
         {
-            throw new Exception("Entrada invalida: " + this.txtCelular.getText());
+            throw new Exception("Entrada invalida: " + (this.txtCelular.getText()));
 	}
-        
         String correo = this.txtCorreoElectronico.getText();
         if(correo.isEmpty() || correo.isBlank())
             throw new Exception("El correo del cliente es requerido");
         
         if((this.txtTelefono.getText()).isEmpty() || (this.txtTelefono.getText()).isBlank())
             throw new Exception("El numero telefono del cliente es requerido");
-        
         try
         {
-            int telefono = Integer.parseInt((String)this.txtTelefono.getText());
+            long fon = Long.parseLong((String)this.txtTelefono.getText());
 	}catch(NumberFormatException nfe)
         {
-            throw new Exception("Entrada invalida: " + this.txtTelefono.getText());
+            throw new Exception("Entrada invalida: " + (this.txtTelefono.getText()));
 	}
-        
         String departamento = this.cmbDepartamento.getSelectionModel().getSelectedItem().toString();
         String municipio = this.cmbMunicipio.getSelectionModel().getSelectedItem().toString();
         String barrio = this.cmbBoColonia.getSelectionModel().getSelectedItem().toString();
@@ -243,14 +252,6 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         
         String tipoVehiculo = this.cmbTipoVehiculo.getSelectionModel().getSelectedItem().toString();
         
-        try
-        {
-            int anio = Integer.parseInt((String)this.cmbYearVehiculo.getSelectionModel().getSelectedItem().toString());
-	}catch(NumberFormatException nfe)
-        {
-            throw new Exception("Entrada invalida: " + (this.cmbYearVehiculo.getSelectionModel().getSelectedItem().toString()));
-	}
-        
         String placa = this.txtPlaca.getText();
         
         if(placa.isEmpty() || placa.isBlank())
@@ -258,13 +259,6 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         
         if((this.spnKms.getValue().toString()).isEmpty() || (this.spnKms.getValue().toString()).isBlank())
             throw new Exception("El kilometraje es requerido");
-        try
-        {
-            float kilometros = Float.parseFloat((String)this.spnKms.getValue().toString());
-	}catch(NumberFormatException nfe)
-        {
-            throw new Exception("Entrada invalida: " + (this.spnKms.getValue().toString()));
-	}
         
         String marca = this.cmbMarca.getSelectionModel().getSelectedItem().toString();
         String modelo = this.cmbModelo.getSelectionModel().getSelectedItem().toString();
@@ -289,12 +283,12 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         if(revisar.isEmpty() || revisar.isBlank())
             throw new Exception(" es requerido");
             
-        //Lectura de datos de factura
+        //Presupuesto de orden de trabajo
         if((this.txtPresupuesto.getText()).isEmpty() || (this.txtPresupuesto.getText()).isBlank())
             throw new Exception("El presupuesto es requerido");
         try
         {
-            float presupuesto = Float.parseFloat((String)this.txtPresupuesto.getText());
+            double presupuesto = Double.parseDouble((String)this.txtPresupuesto.getText());
 	}catch(NumberFormatException nfe)
         {
             throw new Exception("Entrada invalida: " + (this.txtPresupuesto.getText()));
@@ -303,12 +297,19 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         String codigoProducto = this.txtCodProducto.getText();
         if(codigoProducto.isEmpty() || codigoProducto.isBlank())
             throw new Exception("El codigo del productoes requerido");
+        try
+        {
+            int codigoProduct = Integer.parseInt(codigoProducto);
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + codigoProducto);
+	}
         
         if((this.txtDtoProducto.getText()).isEmpty() || (this.txtDtoProducto.getText()).isBlank())
             throw new Exception("El Descuento del producto no puede ser vacio");
         try
         {
-            float descuento = Float.parseFloat( (String)this.txtDtoProducto.getText());
+            double descuento = Double.parseDouble( (String)this.txtDtoProducto.getText());
 	}catch(NumberFormatException nfe)
         {
             throw new Exception("Entrada invalida: " + (this.txtDtoProducto.getText()));
@@ -323,7 +324,7 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
             throw new Exception("El precio del producto no puede ser vacio");
         try
         {
-            float precio = Float.parseFloat((String)this.txtPrecioProducto.getText());
+            double precio = Double.parseDouble((String)this.txtPrecioProducto.getText());
 	}catch(NumberFormatException nfe)
         {
             throw new Exception("Entrada invalida: " + (this.txtPrecioProducto.getText()));
@@ -339,14 +340,14 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
             throw new Exception("Entrada invalida: " + (this.txtCantidadProducto.getText()));
 	}
         
-        if((this.txtTotal.getText()).isEmpty() || (this.txtTotal.getText()).isBlank())
+        if((this.txtTotalProductos.getText()).isEmpty() || (this.txtTotalProductos.getText()).isBlank())
             throw new Exception("El total es requerido");
         try
         {
-            float total = Float.parseFloat((String)this.txtTotal.getText());
+            double total = Double.parseDouble((String)this.txtTotalProductos.getText());
 	}catch(NumberFormatException nfe)
         {
-            throw new Exception("Entrada invalida: " + (this.txtTotal.getText()));
+            throw new Exception("Entrada invalida: " + (this.txtTotalProductos.getText()));
 	}
         
         // Datos de calculo
@@ -354,10 +355,59 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
             throw new Exception("La mano de obra es requerido");
         try
         {
-            float manoDeObra = Float.parseFloat((String)this.txtMO.getText());
+            double manoDeObra = Double.parseDouble((String)this.txtMO.getText());
 	}catch(NumberFormatException nfe)
         {
             throw new Exception("Entrada invalida: " + (this.txtMO.getText()));
+	}
+        
+        if((this.txtSubTotal.getText()).isEmpty() || (this.txtSubTotal.getText()).isBlank())
+            throw new Exception("El subtotal es requerido");
+        try
+        {
+            double subtotal = Double.parseDouble((String)this.txtSubTotal.getText());
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + (this.txtSubTotal.getText()));
+	}
+        if((this.txtDto.getText()).isEmpty() || (this.txtDto.getText()).isBlank())
+            throw new Exception("La mano de obra es requerido");
+        try
+        {
+            double dto = Double.parseDouble((String)this.txtDto.getText());
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + (this.txtDto.getText()));
+	}
+        
+        if((this.txtSubTotalNeto.getText()).isEmpty() || (this.txtSubTotalNeto.getText()).isBlank())
+            throw new Exception("El subtotal es requerido");
+        try
+        {
+            double subtn = Double.parseDouble((String)this.txtSubTotalNeto.getText());
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + (this.txtSubTotalNeto.getText()));
+	}
+        
+        if((this.txtIVA.getText()).isEmpty() || (this.txtIVA.getText()).isBlank())
+            throw new Exception("El iva es requerido");
+        try
+        {
+            double iva = Double.parseDouble((String)this.txtIVA.getText());
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + (this.txtIVA.getText()));
+	}
+        
+        if((this.txtTotal.getText()).isEmpty() || (this.txtTotal.getText()).isBlank())
+            throw new Exception("El iva es requerido");
+        try
+        {
+            double total = Double.parseDouble((String)this.txtTotal.getText());
+	}catch(NumberFormatException nfe)
+        {
+            throw new Exception("Entrada invalida: " + (this.txtTotal.getText()));
 	}
         /*
         if(.isEmpty() || .isBlank())
@@ -395,10 +445,75 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
             validarEntrada();
         } catch (Exception ex)
         {
-            
-            
+            Alert a = new Alert(Alert.AlertType.ERROR,"Entrada invalidad. " + ex.getMessage(), ButtonType.OK);
+            a.showAndWait();
             Logger.getLogger(OrdenDeTrabajoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        //Vehicle
+        String placa = this.txtPlaca.getText();
+        String motor = this.txtMotor.getText();
+        String vin = this.txtVIN.getText();
+        String chasis = this.txtChasis.getText();
+        String year = this.cmbYearVehiculo.getSelectionModel().getSelectedItem().toString();
+        String kms = this.spnKms.getValue().toString();
+        String modelo = this.cmbModelo.getSelectionModel().getSelectedItem().toString();
+        String color = this.cmbColorVehiculo.getSelectionModel().getSelectedItem().toString();
+        String marcaVehiculo = this.cmbMarca.getSelectionModel().getSelectedItem().toString();
+        String tipoVehiculo = this.cmbTipoVehiculo.getSelectionModel().getSelectedItem().toString();
+        
+        Vehiculo v = new Vehiculo(placa, motor, vin, chasis, year, kms, modelo, color, marcaVehiculo, tipoVehiculo);
+        try
+        {
+            jv.create(v);
+        } catch (IOException ex)
+        {
+            Logger.getLogger(OrdenDeTrabajoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Cliente
+        String nombre = this.txtNombreCompleto.getText();
+        String cedula = this.txtCedula.getText();
+        String celular = this.txtCelular.getText();
+        String correo = this.txtCorreoElectronico.getText();
+        String telefono = this.txtTelefono.getText();
+        String departamento = this.cmbDepartamento.getSelectionModel().getSelectedItem().toString();
+        String municipio = this.cmbMunicipio.getSelectionModel().getSelectedItem().toString();
+        String barrio = this.cmbBoColonia.getSelectionModel().getSelectedItem().toString();
+        String dir = this.txtADireccion.getText();
+        
+        Cliente c = new Cliente( nombre, cedula,  celular,  correo,  telefono, departamento,  municipio,  barrio,  dir, v);
+        try
+        {
+            jc.create(c);
+        } catch (IOException ex)
+        {
+            Logger.getLogger(OrdenDeTrabajoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Presupues de orden de trabajo
+        int codigo = Integer.parseInt(this.txtCodProducto.getText());
+        String descripcion = this.txtDescpProducto.getText();
+        int cantidad = Integer.parseInt(this.txtCantidadProducto.getText());
+        double precio = Double.parseDouble(this.txtPrecioProducto.getText());
+        double subTotal = Double.parseDouble(this.txtSubTotal.getText());
+        double descuento = Double.parseDouble(this.txtDtoProducto.getText());
+        double total = Double.parseDouble(this.txtTotalProductos.getText());
+        
+        PresupuestoOrdenDeTrabajo pot = new PresupuestoOrdenDeTrabajo(codigo, descripcion, cantidad, precio, subTotal, descuento, total);
+        try
+        {
+            jpot.create(pot);
+        } catch (IOException ex)
+        {
+            Logger.getLogger(OrdenDeTrabajoFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //Orden de trabajo
+        int codCliente = c.getId();
+        int codVehiculo = v.getId();
+        String revision = this.txtARevisar.getText();
+        double presupuesto = Double.parseDouble(this.txtPresupuesto.getText());
+        PresupuestoOrdenDeTrabajo presupuestoOrdenDeTrabajo = pot;
+        
+        OrdenDeTrabajo odt = new OrdenDeTrabajo(codCliente, codVehiculo, revision, presupuesto, presupuestoOrdenDeTrabajo);
     }
 
     @FXML

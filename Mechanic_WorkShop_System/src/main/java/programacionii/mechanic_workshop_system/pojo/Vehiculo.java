@@ -24,7 +24,8 @@ public class Vehiculo {
     private String tipoVehiculo; //20
     //SIZE = 150
 
-    public Vehiculo() {
+    public Vehiculo()
+    {
     }
 
         public Vehiculo(String placa, String motor, String vin, String chasis, String year, String kms, String modelo, String color, String marcaVehiculo, String tipoVehiculo) {
