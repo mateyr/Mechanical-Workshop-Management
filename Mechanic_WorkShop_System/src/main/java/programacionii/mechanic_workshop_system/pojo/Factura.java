@@ -10,18 +10,19 @@ package programacionii.mechanic_workshop_system.pojo;
  * @author navar
  */
 public class Factura {
-    private int id;//Numero de factura
-    private String descripcionProducto;
-    private int cantidadProducto;
-    private double descuentoProducto;
-    private double precioProducto;
-    private double subTotalProducto;
-    private double manoDeObra;
-    private double subTotal;
-    private double descuento;
-    private double subTotalNeto;
-    private double iva;
-    private double total;
+    private int id;//4//Numero de factura
+    private String descripcionProducto;//20
+    private int cantidadProducto;//4
+    private double descuentoProducto;//8
+    private double precioProducto;//8
+    private double subTotalProducto;//8
+    private double manoDeObra;//8
+    private double subTotal;//8
+    private double descuento;//8
+    private double subTotalNeto;//8
+    private double iva;//8
+    private double total;//8
+    //SIZE = 100
 
     public Factura() {
     }

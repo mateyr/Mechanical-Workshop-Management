@@ -5,8 +5,6 @@
  */
 package programacionii.mechanic_workshop_system.pojo;
 
-import programacionii.mechanic_workshop_system.pojo.PresupuestoOrdenDeTrabajo;
-
 /**
  *
  * @author navar
