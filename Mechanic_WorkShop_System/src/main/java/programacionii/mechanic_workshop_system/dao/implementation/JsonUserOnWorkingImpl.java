@@ -11,30 +11,29 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import programacionii.mechanic_workshop_system.dao.UserDao;
-import programacionii.mechanic_workshop_system.enums.UserType;
+import programacionii.mechanic_workshop_system.dao.UserOnWorking;
 import programacionii.mechanic_workshop_system.pojo.User;
 
 /**
  *
  * @author MateyR
  */
-public class JsonUserDaoImpl extends RandomTemplate implements UserDao
+public class JsonUserOnWorkingImpl extends RandomTemplate implements UserOnWorking<User>
 {
     private final int SIZE = 140;
     private Gson gson;
 
-    public JsonUserDaoImpl()
+    public JsonUserOnWorkingImpl()
     {
-       super(new File("Data.head"), new File("Data.dat"));
+       super(new File("UserOnWorking.head"), new File("UserOnWorking.dat"));
        gson = new Gson();
     }
+    
 
     @Override
     public void create(User t) throws IOException
     {
-        
-        getCustomRandom().getRafH().seek(0);
+       getCustomRandom().getRafH().seek(0);
         int n = getCustomRandom().getRafH().readInt();
         int k = getCustomRandom().getRafH().readInt();
         
@@ -62,63 +61,35 @@ public class JsonUserDaoImpl extends RandomTemplate implements UserDao
     @Override
     public int update(User t) throws IOException
     {
-        getCustomRandom().getRafH().seek(0);
+       getCustomRandom().getRafH().seek(0);
         int n = getCustomRandom().getRafH().readInt();
-        
-        for (int i = 0; i < n; i++) {
+
+        for(int i = 0; i < n; i++)
+        {
             long posH = 8 + (i * 8);
             getCustomRandom().getRafH().seek(posH);
-            
+
             int id = getCustomRandom().getRafH().readInt();
-            
-            if(id <= 0) {
+
+            if(id <= 0)
                 continue;
-            }
-            
-            if(id == t.getId()) {
-                long posD = getCustomRandom().getRafD().readInt();
+
+            if(id == t.getId())
+            {
+                long posD = (id - 1) * SIZE + 4;
                 getCustomRandom().getRafD().seek(posD);
                 getCustomRandom().getRafD().writeUTF(gson.toJson(t));
                 return 0;
             }
         }
-        
-        close();
-        return -1;
-      
-    }
 
-    @Override
-    public boolean delete(User t) throws IOException
-    {
-        getCustomRandom().getRafH().seek(0);
-        int n = getCustomRandom().getRafH().readInt();
-        
-        for (int i = 0; i < n; i++) {
-            long posH = 8 + (i * 8);
-            getCustomRandom().getRafH().seek(posH);
-            
-            int id = getCustomRandom().getRafH().readInt();
-            
-            if(id <= 0) {
-                continue;
-            }
-            
-            if(id == t.getId()) {
-                getCustomRandom().getRafH().seek(posH);
-                getCustomRandom().getRafH().writeInt(-1);
-                return true;
-            }
-        }
-        
-        close();
-        return false;
+        return -1;
     }
 
     @Override
     public Collection<User> getAll() throws IOException
-    {       
-        List<User> users = new ArrayList<>();
+    {
+     List<User> users = new ArrayList<>();
         User user = null;
         
         getCustomRandom().getRafH().seek(0);
@@ -142,7 +113,5 @@ public class JsonUserDaoImpl extends RandomTemplate implements UserDao
         }
       return  users;
     }
-
-   
     
 }

@@ -36,6 +36,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import programacionii.mechanic_workshop_system.App;
+import static programacionii.mechanic_workshop_system.controller.MainAdministradorController.loadFXML;
 /**
  * FXML Controller class
  *
@@ -151,7 +152,6 @@ public class MainMecanicoController implements Initializable
         btnOrdenTrabajo.setStyle(normalStyle);
     }
     
-    @FXML
     public void btnComprasAction(ActionEvent event) throws IOException
     {
         Scene scene = new Scene(loadFXML("ValidateCompra_Y_GastoFXML"));
@@ -208,6 +208,29 @@ public class MainMecanicoController implements Initializable
             btn.setTextFill(Paint.valueOf("#8c8a8a"));
             btn.setStyle("-fx-background-color: #d8d4d4");
         });
+    }
+
+    @FXML
+    public void btnConfiMouseExit(MouseEvent event)
+    {
+        btnConfi.setStyle(normalStyle);
+    }
+
+    @FXML
+    public void btnConfiMouseEntered(MouseEvent event)
+    {
+        btnConfi.setStyle(selectedStyle);
+    }
+
+    @FXML
+    public void btnConfiAction(ActionEvent event) throws IOException
+    {
+        Scene scene = new Scene(loadFXML("MecanicoSetting"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
+        stage.showAndWait();
     }
 
     

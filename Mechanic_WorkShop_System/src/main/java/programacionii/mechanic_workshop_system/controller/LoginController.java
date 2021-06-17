@@ -26,6 +26,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import programacionii.mechanic_workshop_system.App;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonUserOnWorkingImpl;
 import programacionii.mechanic_workshop_system.dao.implementation.JsonUserDaoImpl;
 import programacionii.mechanic_workshop_system.enums.UserType;
 import programacionii.mechanic_workshop_system.pojo.User;
@@ -52,8 +53,9 @@ public class LoginController implements Initializable {
     public Button btnIngresar;
     
     private JsonUserDaoImpl jUserDao;
+    private JsonUserOnWorkingImpl jsuow;
     private User user = new User(2,"Rodian","Matey","MateyR","12345",22,UserType.Mecanico);  // Para propositos didacticos
-     private List<User> users = new ArrayList<User>();
+    private List<User> users = new ArrayList<User>();
     /**
      * Initializes the controller class.
      *
@@ -64,6 +66,7 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         jUserDao = new JsonUserDaoImpl();
+        jsuow = new JsonUserOnWorkingImpl();
         
     }    
   
@@ -74,6 +77,13 @@ public class LoginController implements Initializable {
       {
           if(t.getUsername().equals(txtUser.getText()) && t.getPassword().equals(txtPass.getText()))
           {
+              try
+              {
+                  jsuow.create(t);
+              } catch (IOException ex)
+              {
+                  Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+              }
               txtPass.setText("");
               txtUser.setText("");
               Scene scene = null;
@@ -81,7 +91,8 @@ public class LoginController implements Initializable {
               {
                   try 
                   {
-                      scene = new Scene(new FXMLLoader(App.class.getResource("MainAdministrador.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera  
+                      scene = new Scene(new FXMLLoader(App.class.getResource("MainAdministrador.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera 
+                      scene.setUserData(t);
                   }catch (IOException ex)
                   {
                       Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,13 +109,12 @@ public class LoginController implements Initializable {
                       Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                   }
               }
-       
+      
                Stage stage = new Stage();
                btnIngresar.getScene().getWindow().hide();  // Aqui ocultamos el Login.fxml
                stage.setScene(scene);
                stage.setFullScreen(true);
                stage.showAndWait();  
-          
           }else{
               System.out.println("No Existe tal Usuario"); //Buscar Equivalente a JOptionPane
           }
