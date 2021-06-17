@@ -52,7 +52,7 @@ public class LoginController implements Initializable {
     public Button btnIngresar;
     
     private JsonUserDaoImpl jUserDao;
-    private User user = new User(1,"Uziel","Duarte","DuarteU","54321",22,UserType.Administrado);  // Para propositos didacticos
+    private User user = new User(2,"Rodian","Matey","MateyR","12345",22,UserType.Mecanico);  // Para propositos didacticos
      private List<User> users = new ArrayList<User>();
     /**
      * Initializes the controller class.
@@ -77,16 +77,33 @@ public class LoginController implements Initializable {
               txtPass.setText("");
               txtUser.setText("");
               Scene scene = null;
-              try {
-                  scene = new Scene(new FXMLLoader(App.class.getResource("Main.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera
-              } catch (IOException ex) {
-                  Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+              if(t.getUserType().equals(UserType.Administrador))
+              {
+                  try 
+                  {
+                      scene = new Scene(new FXMLLoader(App.class.getResource("MainAdministrador.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera  
+                  }catch (IOException ex)
+                  {
+                      Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                  }
               }
-          Stage stage = new Stage();
-          btnIngresar.getScene().getWindow().hide();  // Aqui ocultamos el Login.fxml
-          stage.setScene(scene);
-          stage.setFullScreen(true);
-          stage.showAndWait();  
+              
+              if(t.getUserType().equals(UserType.Mecanico))
+              {
+                  try 
+                  {
+                      scene = new Scene(new FXMLLoader(App.class.getResource("MainMecanico.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera  
+                  }catch (IOException ex)
+                  {
+                      Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                  }
+              }
+       
+               Stage stage = new Stage();
+               btnIngresar.getScene().getWindow().hide();  // Aqui ocultamos el Login.fxml
+               stage.setScene(scene);
+               stage.setFullScreen(true);
+               stage.showAndWait();  
           
           }else{
               System.out.println("No Existe tal Usuario"); //Buscar Equivalente a JOptionPane

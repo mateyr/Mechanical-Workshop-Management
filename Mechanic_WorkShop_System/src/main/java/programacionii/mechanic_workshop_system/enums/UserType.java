@@ -12,5 +12,5 @@ package programacionii.mechanic_workshop_system.enums;
 public enum UserType
 {
     Mecanico,
-    Administrado,
+    Administrador,
 }

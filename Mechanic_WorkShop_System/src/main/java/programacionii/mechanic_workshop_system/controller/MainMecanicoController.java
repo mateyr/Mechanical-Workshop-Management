@@ -10,33 +10,40 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TabPane;
+import javafx.scene.input.MouseEvent;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
 import programacionii.mechanic_workshop_system.App;
-
 /**
  * FXML Controller class
  *
  * @author MateyR
  */
-public class MainController implements Initializable
+public class MainMecanicoController implements Initializable
 {
-
+    
     @FXML
     public TabPane tbOptions;
     @FXML
@@ -45,12 +52,6 @@ public class MainController implements Initializable
     public Button btnConfi;
     @FXML
     public Button btnOrdenTrabajo;
-    @FXML
-    public Button btnCompras;
-    @FXML
-    public Button btnArticulos;
-    @FXML
-    public Button btnFactura;
     
     private String selectedStyle = "-fx-background-color: #095594;-fx-border-width:4;-fx-background-insets: 0,6;-fx-background-radius: 6px, 0px;";
     private String normalStyle = "-fx-border-color: #1073c5;";
@@ -59,16 +60,16 @@ public class MainController implements Initializable
     @FXML
     public Button btnCloseFirstTab;
     public Button btnCloseTab;   // Este lo uso para Cerrar todas la pestañas menos la primera
+    private String userType;
 
+   
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
-    {
-        addTab("1");
-        addTab("2");
-        addTab("3");      
+    { 
+  
     }    
     
     public static Parent loadFXML(String fxml) throws IOException   // Este metodo lo he agregado por que en esta clase lo usaremos bastante
@@ -165,55 +166,7 @@ public class MainController implements Initializable
         stage.showAndWait();
     
     }
-    
-    @FXML
-    public void btnComprasMouseEntered(MouseEvent event)
-    {
-        btnCompras.setStyle(selectedStyle);
-    }
 
-    @FXML
-    public void btnComprasMouseExited(MouseEvent event)
-    {
-        btnCompras.setStyle(normalStyle);
-    }
-    
-    @FXML
-    public void btnArticulosAction(ActionEvent event)
-    {
-      //Se debe abrir la Scene Correspondiente
-    }
-  
-    @FXML
-    public void btnArticulosMouseEntered(MouseEvent event)
-    {
-        btnArticulos.setStyle(selectedStyle);
-    }
-    
-    @FXML
-    public void btnArticulosMouseExited(MouseEvent event)
-    {
-        btnArticulos.setStyle(normalStyle);
-    }
-    
-    @FXML
-    public void btnFacturaAction(ActionEvent event)
-    {
-        //Se debe abrir la Scene Correspondiente
-    }
-
-    @FXML
-    public void btnFacturaMouseEntered(MouseEvent event)
-    {
-        btnFactura.setStyle(selectedStyle);
-    }
-
-    @FXML
-    public void btnFacturaMouseExited(MouseEvent event)
-    {
-        btnFactura.setStyle(normalStyle);
-    }
-    
     @FXML
     public void btnCloseTabAction(ActionEvent event)
     {
@@ -256,4 +209,8 @@ public class MainController implements Initializable
             btn.setStyle("-fx-background-color: #d8d4d4");
         });
     }
+
+    
+   
+    
 }
