@@ -60,6 +60,7 @@ public class Compras_Y_GastosFXMLController implements Initializable {
         this.tblColumnPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
         this.tblColumnDescuento.setCellValueFactory(new PropertyValueFactory("descuento"));
         this.tblColumnSubtotal.setCellValueFactory(new PropertyValueFactory("subTotal"));
+        loadData();
         
     }    
 
@@ -68,6 +69,13 @@ public class Compras_Y_GastosFXMLController implements Initializable {
     public void btnOkAction(ActionEvent event) {
         Stage stage = (Stage) btnOk.getScene().getWindow();
         stage.close(); 
+    }
+    public void loadData(){
+        PresupuestoOrdenDeTrabajo presupuestoOT = new PresupuestoOrdenDeTrabajo();
+        if(this.comprasGastos.contains(presupuestoOT)){
+            this.comprasGastos.add(presupuestoOT);
+            this.tblViewContent.setItems(comprasGastos);
+        }
     }
     
 }

@@ -76,6 +76,8 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
         this.tblColumnNumOrden.setCellValueFactory(new PropertyValueFactory("numeroOrden"));
         this.tblColumnMecanico.setCellValueFactory(new PropertyValueFactory("nombreMecanico"));
         this.tblColumnEstado.setCellValueFactory(new PropertyValueFactory("estado"));
+        
+        
     }    
 
     @FXML
@@ -96,6 +98,14 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
     public void btnCancelarAction(ActionEvent event){
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
+    }
+    
+    public void loadData(){
+        OrdenCompraGasto ordenCP = new OrdenCompraGasto();
+        if(!this.ordenCompraGasto.contains(ordenCP)){
+            this.ordenCompraGasto.add(ordenCP);
+            this.tblViewContent.setItems(ordenCompraGasto);
+        }
     }
     
 }
