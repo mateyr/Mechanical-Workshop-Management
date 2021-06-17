@@ -77,7 +77,7 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
         this.tblColumnMecanico.setCellValueFactory(new PropertyValueFactory("nombreMecanico"));
         this.tblColumnEstado.setCellValueFactory(new PropertyValueFactory("estado"));
         
-        
+        loadData();
     }    
 
     @FXML
