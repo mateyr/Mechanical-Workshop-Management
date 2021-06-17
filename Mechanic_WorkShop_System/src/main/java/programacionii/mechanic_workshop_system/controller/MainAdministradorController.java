@@ -127,7 +127,7 @@ public class MainAdministradorController implements Initializable
     @FXML
     public void btnOrdenTrabajoAction(ActionEvent event) throws IOException
     {
-        Scene scene = new Scene(loadFXML("OrdenDeTrabajoFXML"), 1239, 710);
+        Scene scene = new Scene(loadFXML("OrdenDeTrabajoFXML"));
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);

@@ -28,6 +28,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import programacionii.mechanic_workshop_system.dao.implementation.JsonClienteDaoImpl;
 import programacionii.mechanic_workshop_system.dao.implementation.JsonPresupuestoOrdenTrabajoDaoImpl;
 import programacionii.mechanic_workshop_system.dao.implementation.JsonVehiculoDaoImpl;
@@ -361,8 +363,8 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public void btnNewOrdenConDatosAction(ActionEvent event) {
     }
 
-    /*@FXML
-    /*public void btnSaveOrdenAction(ActionEvent event) {
+    @FXML
+    public void btnSaveOrdenAction(ActionEvent event) {
         try
         {
             validarEntrada();
@@ -419,7 +421,7 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         double precio = Double.parseDouble(this.txtPrecioProducto.getText());
         double subTotal = Double.parseDouble(this.txtSubTotal.getText());
         double descuento = Double.parseDouble(this.txtDtoProducto.getText());
-        //double total = Double.parseDouble(this.txtTotalProductos.getText());  // Da Error 
+        double total = Double.parseDouble(this.txtTotal.getText());  // Da Error 
         
         PresupuestoOrdenDeTrabajo pot = new PresupuestoOrdenDeTrabajo(codigo, descripcion, cantidad, precio, subTotal, descuento, total);
         try
@@ -439,7 +441,7 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         OrdenDeTrabajo odt = new OrdenDeTrabajo(codCliente, codVehiculo, revision, presupuesto, presupuestoOrdenDeTrabajo);
     }
 
-    /*private void validarEntrada() throws Exception
+    private void validarEntrada() throws Exception
     {
         //Lectura de datos del cliente
         String codigoCliente = this.txtCodCliente.getText();
@@ -485,7 +487,7 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         if(direccion.isEmpty() || direccion.isBlank())
             throw new Exception("La direccion es requerido");
         
-        Lectura de datos del vehiculo
+        
         String codigoVehiculo = this.txtCodVehiculo.getText();
         if(codigoVehiculo.isEmpty() || codigoVehiculo.isBlank())
             throw new Exception("El codigo del vehiculo es requerido");
@@ -580,14 +582,14 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
             throw new Exception("Entrada invalida: " + (this.txtCantidadProducto.getText()));
 	}
         
-        if((this.txtTotalProductos.getText()).isEmpty() || (this.txtTotalProductos.getText()).isBlank())   //Da Error
+        if((this.txtTotal.getText()).isEmpty() || (this.txtTotal.getText()).isBlank())   //Da Error
             throw new Exception("El total es requerido");
         try  
-        /*{
-            double total = Double.parseDouble((String)this.txtTotalProductos.getText());
+        {
+            double total = Double.parseDouble((String)this.txtTotal.getText());
 	}catch(NumberFormatException nfe)
         {
-            throw new Exception("Entrada invalida: " + (this.txtTotalProductos.getText()));
+            throw new Exception("Entrada invalida: " + (this.txtTotal.getText()));
 	}
         
         // Datos de calculo
@@ -648,85 +650,58 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
 	}catch(NumberFormatException nfe)
         {
             throw new Exception("Entrada invalida: " + (this.txtTotal.getText()));
-	}*/
-        
-        //if(.isEmpty() || .isBlank())
-          //  throw new Exception(" es requerido");
-        
-        
+	} 
        
-    //}
+    }
 
-    /*@FXML
-    private void btnCancelarAction(ActionEvent event)
+    @FXML
+    public void btnCancelarAction(ActionEvent event)
     {
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
 
     @FXML
-    private void btnSugerenciaClienteAction(ActionEvent event)
+    public void btnSugerenciaClienteAction(ActionEvent event)
     {
     }
 
     @FXML
-    private void cmbMunicipioAction(ActionEvent event)
+    public void cmbMunicipioAction(ActionEvent event)
     {
     }
 
     @FXML
-    private void cmbDepartamentoAction(ActionEvent event)
+    public void cmbDepartamentoAction(ActionEvent event)
     {
          validateMunicipio();
     }
 
     @FXML
-    private void cmbMarcaAction(ActionEvent event)
+    public void cmbMarcaAction(ActionEvent event)
     {
          validateModelos();
     }
 
     @FXML
-    private void btnSugereciaVehiculoAction(ActionEvent event)
+    public void btnSugereciaVehiculoAction(ActionEvent event)
     {
     }
 
     @FXML
-    private void btnAddProductoAction(ActionEvent event)
+    public void btnAddProductoAction(ActionEvent event)
     {
     }
 
     @FXML
-    private void btnCalcularAllAction(ActionEvent event)
+    public void btnCalcularAllAction(ActionEvent event)
     {
     }
-}*/
-     
-
-    /**
-     * Initializes the controller class.
-     */
-    /*@Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        SpinnerValueFactory<Integer> valueF =
-                new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10);
-        valueF.setValue(1);
-        this.spnKms.setValueFactory(valueF);
-        //this.spnKms.getValue()
-        editFuntionTableView();
-        //addImageButtons();
-        loadcomboxes();
-    }*/
-   
-
-    
-   /* private void addImageButtons() 
-                    {
+    private void addImageButtons() 
+    {
         URL linkPrintImage = getClass().getResource("/img/printer.png");
         
         Image imagenPrint = new Image(linkPrintImage.toString(), 32, 32, false, true);
         
         btnPrint.setGraphic((new ImageView(imagenPrint)));
-    }*/
-
+    }
 }
