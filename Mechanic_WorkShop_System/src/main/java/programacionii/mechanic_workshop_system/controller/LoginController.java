@@ -36,6 +36,7 @@ import programacionii.mechanic_workshop_system.pojo.User;
  * @author MateyR
  */
 
+
 public class LoginController implements Initializable {
 
     @FXML
@@ -53,7 +54,8 @@ public class LoginController implements Initializable {
     
     private JsonUserDaoImpl jUserDao;
     private User user = new User(2,"Rodian","Matey","MateyR","12345",22,UserType.Mecanico);  // Para propositos didacticos
-     private List<User> users = new ArrayList<User>();
+    private List<User> users = new ArrayList<User>();
+
     /**
      * Initializes the controller class.
      *
@@ -63,6 +65,7 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+
         jUserDao = new JsonUserDaoImpl();
         
     }    

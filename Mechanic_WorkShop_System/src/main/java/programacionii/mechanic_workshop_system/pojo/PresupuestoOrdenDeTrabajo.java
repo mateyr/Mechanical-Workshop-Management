@@ -10,13 +10,15 @@ package programacionii.mechanic_workshop_system.pojo;
  * @author navar
  */
 public class PresupuestoOrdenDeTrabajo {
-    private int codigo;
-    private String descripcion;
-    private int cantidad;
-    private double precio;
-    private double subTotal;
-    private double descuento;
-    private double total;
+    private int id;//4
+    private int codigo;//4
+    private String descripcion;//20
+    private int cantidad;//4
+    private double precio;//8
+    private double subTotal;//8
+    private double descuento;//8
+    private double total;//8
+    //SIZE = 64
 
     public PresupuestoOrdenDeTrabajo() {
     }
@@ -29,6 +31,10 @@ public class PresupuestoOrdenDeTrabajo {
         this.subTotal = subTotal;
         this.descuento = descuento;
         this.total = total;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public int getCodigo() {

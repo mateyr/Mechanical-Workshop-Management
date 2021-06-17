@@ -13,16 +13,16 @@ public class Vehiculo {
     private int id; //4//Codigo de vehiculo
     private int idCliente; //4//Codigo de dueño del vehiculo
     private String placa; //7
-    private String motor; //10
+    private String motor; //12
     private String vin; //17
-    private String chasis; 
+    private String chasis; //17
     private String year; //4
     private String kms; //5
     private String modelo; //20
     private String color; //20
     private String marcaVehiculo; //20
     private String tipoVehiculo; //20
-    //SIZE = 131
+    //SIZE = 150
 
     public Vehiculo() {
     }
