@@ -11,25 +11,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import programacionii.mechanic_workshop_system.dao.ClienteDao;
-import programacionii.mechanic_workshop_system.pojo.Cliente;
+import programacionii.mechanic_workshop_system.dao.PresupuestoOrdenDeTrabajoDao;
+import programacionii.mechanic_workshop_system.pojo.PresupuestoOrdenDeTrabajo;
 
 /**
  *
  * @author navar
  */
-public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
-    private final int SIZE = 429;
+public class JsonPresupuestoOrdenTrabajoDaoImpl extends RandomTemplate implements PresupuestoOrdenDeTrabajoDao{
+    private final int SIZE = 64;
     private Gson gson;
 
-    public JsonClienteDaoImpl() {
-        super(new File("Cliente.head"), new File("Cliente.dat"));
+    public JsonPresupuestoOrdenTrabajoDaoImpl() {
+        super(new File("PresupuestoOrdenTrabajo.head"), new File("PresupuestoOrdenTrabajo.dat"));
         this.gson = new Gson();
     }
-
+    
     @Override
-    public Cliente findById(int id) throws IOException {
-        Cliente c = null;
+    public PresupuestoOrdenDeTrabajo findById(int id) throws IOException {
+        PresupuestoOrdenDeTrabajo po = null;
         
         getCustomRandom().getRafD().seek(0);
         int n = getCustomRandom().getRafD().readInt();
@@ -44,15 +44,15 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
         int code = getCustomRandom().getRafD().readInt();
         
         if(id == code) {
-            c = gson.fromJson(getCustomRandom().getRafD().readUTF(), Cliente.class);
+            po = gson.fromJson(getCustomRandom().getRafD().readUTF(), PresupuestoOrdenDeTrabajo.class);
         }
         
         close();
-        return c;
+        return po;
     }
 
     @Override
-    public void create(Cliente t) throws IOException {
+    public void create(PresupuestoOrdenDeTrabajo t) throws IOException {
         getCustomRandom().getRafH().seek(0);
         
         int n = getCustomRandom().getRafH().readInt();
@@ -78,7 +78,7 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
     }
 
     @Override
-    public int update(Cliente t) throws IOException {
+    public int update(PresupuestoOrdenDeTrabajo t) throws IOException {
         getCustomRandom().getRafH().seek(0);
         int n = getCustomRandom().getRafH().readInt();
         
@@ -105,7 +105,7 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
     }
 
     @Override
-    public boolean delete(Cliente t) throws IOException {
+    public boolean delete(PresupuestoOrdenDeTrabajo t) throws IOException {
         getCustomRandom().getRafH().seek(0);
         int n = getCustomRandom().getRafH().readInt();
         
@@ -131,9 +131,9 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
     }
 
     @Override
-    public Collection<Cliente> getAll() throws IOException {
-        List<Cliente> clientes = new ArrayList<>();
-        Cliente cliente = null;
+    public Collection<PresupuestoOrdenDeTrabajo> getAll() throws IOException {
+        List<PresupuestoOrdenDeTrabajo> presupuestos = new ArrayList<>();
+        PresupuestoOrdenDeTrabajo presupuesto = null;
         
         getCustomRandom().getRafH().seek(0);
         int n = getCustomRandom().getRafH().readInt();
@@ -151,13 +151,13 @@ public class JsonClienteDaoImpl extends RandomTemplate implements ClienteDao{
             
             long posD = (id - 1) * SIZE + 4;
             getCustomRandom().getRafD().seek(posD);
-            cliente = gson.fromJson(getCustomRandom().getRafD().readUTF(), Cliente.class);
+            presupuesto = gson.fromJson(getCustomRandom().getRafD().readUTF(), PresupuestoOrdenDeTrabajo.class);
             
-            clientes.add(cliente);
+            presupuestos.add(presupuesto);
         }
         
         close();
-        return clientes;
+        return presupuestos;
     }
     
 }

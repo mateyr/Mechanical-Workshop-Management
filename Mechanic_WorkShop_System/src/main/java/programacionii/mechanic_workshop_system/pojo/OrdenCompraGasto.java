@@ -10,9 +10,11 @@ package programacionii.mechanic_workshop_system.pojo;
  * @author navar
  */
 public class OrdenCompraGasto {
-    private String numeroOrden;
-    private String nombreMecanico;
-    private String estado;
+    private int id;//4
+    private String numeroOrden;//6
+    private String nombreMecanico;//50
+    private String estado;//10
+    //SIZE = 70
 
     public OrdenCompraGasto() {
     }
@@ -21,6 +23,10 @@ public class OrdenCompraGasto {
         this.numeroOrden = numeroOrden;
         this.nombreMecanico = nombreMecanico;
         this.estado = estado;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public String getNumeroOrden() {
