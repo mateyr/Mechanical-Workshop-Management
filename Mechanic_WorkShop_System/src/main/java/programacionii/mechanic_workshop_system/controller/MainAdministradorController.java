@@ -126,14 +126,12 @@ public class MainAdministradorController implements Initializable
     @FXML
     public void btnOrdenTrabajoAction(ActionEvent event) throws IOException
     {
-        Scene scene = new Scene(loadFXML("OrdenDeTrabajoFXML"));
+        Scene scene = new Scene(loadFXML("OrdenDeTrabajoFXML"), 1239, 710);
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);
         stage.setX(142); //Valor x para centrar el frame.
-        stage.setY(39); //Valor y para centrar el frame.
-        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
-        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
+        stage.setY(39); //Valor y para centrar el frame
         stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
         stage.showAndWait();
     }
@@ -153,14 +151,12 @@ public class MainAdministradorController implements Initializable
     @FXML
     public void btnComprasAction(ActionEvent event) throws IOException
     {
-        Scene scene = new Scene(loadFXML("ValidateCompra_Y_GastoFXML"));
+        Scene scene = new Scene(loadFXML("ValidateCompra_Y_GastoFXML"), 500, 300);
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);
-        stage.setX(142); //Valor x para centrar el frame.
-        stage.setY(39); //Valor y para centrar el frame.
-        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
-        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
+        stage.setX(511); //Valor x para centrar el frame.
+        stage.setY(244); //Valor y para centrar el frame.
         stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
         stage.showAndWait();
     

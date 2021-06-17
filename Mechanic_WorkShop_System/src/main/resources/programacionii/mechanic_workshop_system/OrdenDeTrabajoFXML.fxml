@@ -25,21 +25,23 @@
     </stylesheets>
    <children>
       <BorderPane layoutX="310.0" layoutY="163.0" prefHeight="559.0" prefWidth="932.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <FlowPane alignment="CENTER" prefHeight="28.0" prefWidth="932.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Button fx:id="btnPrint" mnemonicParsing="false" onAction="#btnPrintAction" />
-               </children>
-               <BorderPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </BorderPane.margin>
-            </FlowPane>
-         </top>
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnNewOrdenSinDatos" mnemonicParsing="false" onAction="#btnNewOrdenSinDatosAction" prefHeight="26.0" prefWidth="100.0" text="Nueva orden ✖" />
-                  <Button fx:id="btnNewOrdenConDatos" mnemonicParsing="false" onAction="#btnNewOrdenConDatosAction" prefHeight="26.0" prefWidth="134.0" text="Nueva orden ✔" />
+                  <Button fx:id="btnNewOrdenSinDatos" mnemonicParsing="false" onAction="#btnNewOrdenSinDatosAction" prefHeight="54.0" prefWidth="100.0" text="Nueva orden ✖" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btnNewOrdenConDatos" mnemonicParsing="false" onAction="#btnNewOrdenConDatosAction" prefHeight="54.0" prefWidth="134.0" text="Nueva orden ✔" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin></Button>
                </children>
                <BorderPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -84,12 +86,12 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="117.0" text="Descripcion: " GridPane.rowIndex="2">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="117.0" text="Descripcion: " GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="147.0" text="Cantidad: " GridPane.rowIndex="3">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="147.0" text="Cantidad: " GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -104,22 +106,17 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="128.0" text="Total: " GridPane.columnIndex="3" GridPane.rowIndex="3">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </Label>
                         <TextField fx:id="txtCodProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtDescpProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                        <TextField fx:id="txtDescpProducto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtCantidadProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                        <TextField fx:id="txtCantidadProducto" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -130,11 +127,6 @@
                            </GridPane.margin>
                         </TextField>
                         <TextField fx:id="txtPrecioProducto" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="2">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="txtTotalProductos" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -153,55 +145,47 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TableView>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="226.0" text="SubTotal: " GridPane.rowIndex="13">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="226.0" text="SubTotal: " GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="267.0" text="Dto.: " GridPane.rowIndex="14">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="267.0" text="Dto.: " GridPane.rowIndex="13">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="SubTotal Neto: " GridPane.rowIndex="15">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="SubTotal Neto: " GridPane.rowIndex="14">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="IVA: " GridPane.rowIndex="16">
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="242.0" text="IVA: " GridPane.rowIndex="15">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
-                        </Label>
-                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="591.0" text="CALCULO" GridPane.columnSpan="6" GridPane.rowIndex="11">
-                           <GridPane.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </GridPane.margin>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
                         </Label>
                         <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="236.0" text="Total: " GridPane.rowIndex="17">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </Label>
-                        <TextField fx:id="txtSubTotal" prefHeight="26.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="13">
+                        <TextField fx:id="txtSubTotal" prefHeight="26.0" prefWidth="451.0" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtDto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="14">
+                        <TextField fx:id="txtDto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="13">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtSubTotalNeto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="15">
+                        <TextField fx:id="txtSubTotalNeto" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="14">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="txtIVA" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="16">
+                        <TextField fx:id="txtIVA" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="15">
                            <GridPane.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
@@ -211,8 +195,11 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="137.0" text="Mano de obra: " GridPane.rowIndex="12" />
-                        <TextField fx:id="txtMO" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="12" />
+                        <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="137.0" text="Mano de obra: " GridPane.rowIndex="11" />
+                        <TextField fx:id="txtMO" GridPane.columnIndex="1" GridPane.columnSpan="5" GridPane.rowIndex="11">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </GridPane.margin></TextField>
                         <Button fx:id="btnAddProducto" mnemonicParsing="false" onAction="#btnAddProductoAction" prefHeight="26.0" prefWidth="230.0" text="Agregar producto" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -228,6 +215,11 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </GridPane.margin>
                         </TextField>
+                        <Button fx:id="btnCalcularAll" mnemonicParsing="false" onAction="#btnCalcularAllAction" prefHeight="26.0" prefWidth="257.0" text="CALCULAR" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="16">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
                      </children>
                      <BorderPane.margin>
                         <Insets bottom="5.0" />
@@ -314,7 +306,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <TextField fx:id="txtCodCliente" GridPane.columnIndex="1">
+                              <TextField fx:id="txtCodCliente" editable="false" GridPane.columnIndex="1">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -371,7 +363,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <ComboBox fx:id="cmbMunicipio" prefHeight="26.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                              <ComboBox fx:id="cmbMunicipio" onAction="#cmbMunicipioAction" prefHeight="26.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -381,7 +373,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </TextArea>
-                              <ComboBox fx:id="cmbDepartamento" prefHeight="26.0" prefWidth="334.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                              <ComboBox fx:id="cmbDepartamento" onAction="#cmbDepartamentoAction" prefHeight="26.0" prefWidth="334.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -471,7 +463,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <ComboBox fx:id="cmbMarca" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                              <ComboBox fx:id="cmbMarca" onAction="#cmbMarcaAction" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -491,7 +483,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </TextField>
-                              <TextField fx:id="txtCodVehiculo" GridPane.columnIndex="2">
+                              <TextField fx:id="txtCodVehiculo" editable="false" GridPane.columnIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
@@ -520,7 +512,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="cmbColor" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="216.0" text="Color: " GridPane.columnIndex="2" GridPane.rowIndex="4">
+                              <Label alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="216.0" text="Color: " GridPane.columnIndex="2" GridPane.rowIndex="4">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
                                  </font>
@@ -627,6 +619,20 @@
                </children>
             </FlowPane>
          </bottom>
+         <top>
+            <FlowPane alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="1239.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lblNumOrden" text="N° de orden: " textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <FlowPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </FlowPane.margin>
+                  </Label>
+               </children>
+            </FlowPane>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
