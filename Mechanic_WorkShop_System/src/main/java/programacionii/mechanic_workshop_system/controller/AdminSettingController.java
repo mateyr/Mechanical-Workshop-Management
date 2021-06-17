@@ -5,10 +5,14 @@
  */
 package programacionii.mechanic_workshop_system.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 
@@ -36,11 +40,25 @@ public class AdminSettingController implements Initializable
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)
-    {
-
-     
+    {     
         
     }    
+
+    @FXML
+    public void btnInfoPAction(ActionEvent event) throws IOException
+    {
+        Scene scene = new Scene(loadFXML("InfoPersonal"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
+        stage.showAndWait();
+    }
+
+    @FXML
+    public void btnUsersAction(ActionEvent event)
+    {
+    }
 
     
     

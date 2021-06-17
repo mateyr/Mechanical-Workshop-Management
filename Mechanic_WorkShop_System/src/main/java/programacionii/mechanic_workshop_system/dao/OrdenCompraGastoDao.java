@@ -6,6 +6,7 @@
 package programacionii.mechanic_workshop_system.dao;
 
 import java.io.IOException;
+import java.util.Collection;
 import programacionii.mechanic_workshop_system.pojo.OrdenCompraGasto;
 
 /**

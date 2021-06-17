@@ -5,6 +5,8 @@
  */
 package programacionii.mechanic_workshop_system.pojo;
 
+import java.util.Objects;
+
 /**
  *
  * @author navar
@@ -92,5 +94,36 @@ public class PresupuestoOrdenDeTrabajo {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.id;
+        hash = 97 * hash + this.codigo;
+        hash = 97 * hash + Objects.hashCode(this.descripcion);
+        hash = 97 * hash + this.cantidad;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.precio) ^ (Double.doubleToLongBits(this.precio) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.subTotal) ^ (Double.doubleToLongBits(this.subTotal) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.descuento) ^ (Double.doubleToLongBits(this.descuento) >>> 32));
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.total) ^ (Double.doubleToLongBits(this.total) >>> 32));
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final PresupuestoOrdenDeTrabajo other = (PresupuestoOrdenDeTrabajo) obj;
+        return true;
+    }
+    
+    
     
 }

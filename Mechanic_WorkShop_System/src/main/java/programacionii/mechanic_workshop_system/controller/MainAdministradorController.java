@@ -104,10 +104,6 @@ public class MainAdministradorController implements Initializable
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);
-        stage.setX(142); //Valor x para centrar el frame.
-        stage.setY(39); //Valor y para centrar el frame.
-        stage.setWidth(1239); //Valor para ajustar al tamaño adecuado.
-        stage.setHeight(710); //Valor para ajustar al tamaño adecuado.
         stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
         stage.showAndWait();
     }
@@ -156,8 +152,6 @@ public class MainAdministradorController implements Initializable
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);
-        stage.setX(511); //Valor x para centrar el frame.
-        stage.setY(244); //Valor y para centrar el frame.
         stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
         stage.showAndWait();
     

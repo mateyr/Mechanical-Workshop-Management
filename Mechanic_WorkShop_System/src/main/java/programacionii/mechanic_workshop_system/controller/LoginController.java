@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -36,10 +35,8 @@ import programacionii.mechanic_workshop_system.pojo.User;
  *
  * @author MateyR
  */
-
-
 public class LoginController implements Initializable {
-
+    
     @FXML
     public TextField txtUser;
     @FXML
@@ -50,12 +47,13 @@ public class LoginController implements Initializable {
     public Hyperlink lblForgot;
     @FXML
     public Button btnClose;
-
+    
     public Button btnIngresar;
     
     private JsonUserDaoImpl jUserDao;
     private JsonUserOnWorkingImpl jsuow;
     private User user = new User(2,"Rodian","Matey","MateyR","12345",22,UserType.Mecanico);  // Para propositos didacticos
+
     private List<User> users = new ArrayList<User>();
 
     /**
@@ -65,9 +63,8 @@ public class LoginController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
-
+    public void initialize(URL url, ResourceBundle rb) {
+        
         jUserDao = new JsonUserDaoImpl();
         jsuow = new JsonUserOnWorkingImpl();
         
@@ -121,15 +118,14 @@ public class LoginController implements Initializable {
           }else{
               System.out.println("No Existe tal Usuario"); //Buscar Equivalente a JOptionPane
           }
+        });
         
-      });
-       
     }
-
+    
     @FXML
     public void btnCloseAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnClose.getScene().getWindow();
-        stage.close();   
+        stage.close();        
     }
-
+    
 }

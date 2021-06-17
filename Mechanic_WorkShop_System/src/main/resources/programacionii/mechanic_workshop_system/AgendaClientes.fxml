@@ -11,21 +11,20 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<SplitPane id="SplitPane" dividerPositions="0.21636546184738958" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="programacionii.mechanic_workshop_system.controller.AgendaClienteController">
+<SplitPane id="SplitPane" dividerPositions="0.21636546184738958" maxHeight="-Infinity" maxWidth="-Infinity" orientation="VERTICAL" prefHeight="319.0" prefWidth="582.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.AgendaClienteController">
    <items>
-      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="600.0">
+      <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="59.0" prefWidth="599.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.199951171875" minWidth="10.0" prefWidth="91.80001220703124" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="506.9999877929687" minWidth="10.0" prefWidth="506.9999877929687" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.199951171875" minWidth="10.0" prefWidth="63.8" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="538.400008392334" minWidth="10.0" prefWidth="517.4" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="36.599981689453124" minHeight="10.0" prefHeight="30.19998779296875" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="55.000006103515624" prefHeight="55.000006103515624" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnBucar" alignment="CENTER" mnemonicParsing="false" onAction="#btnBuscar" text="Buscar" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <TextField fx:id="txtPalabra" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Button fx:id="btnBucar" mnemonicParsing="false" onAction="#btnBuscar" prefHeight="26.0" prefWidth="59.0" text="Buscar" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPalabra" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="502.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <Label text="Clientes" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font name="System Bold" size="15.0" />
