@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="programacionii.mechanic_workshop_system.controller.InfoPersonalController">
+    <stylesheets>
+        <URL value="@/programacionii/mechanic_workshop_system/style/infopersonal.css" />
+    </stylesheets>
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <GridPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.20001220703125" minWidth="10.0" prefWidth="128.799951171875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="522.4000122070312" minWidth="10.0" prefWidth="472.00004882812493" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="73.60000839233399" minHeight="10.0" prefHeight="26.200018310546874" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="94.39999389648438" minHeight="10.0" prefHeight="54.80000610351562" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="87.59999389648439" minHeight="10.0" prefHeight="56.800018310546875" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="78.4" minHeight="10.0" prefHeight="43.79998168945312" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="54.20001831054688" minHeight="10.0" prefHeight="28.79999389648438" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="77.20003356933591" minHeight="10.0" prefHeight="67.80000610351564" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="81.99997558593748" minHeight="10.0" prefHeight="61.19999999999999" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.39999999999998" minHeight="10.0" prefHeight="48.39999999999998" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.39999999999998" minHeight="10.0" prefHeight="48.39999999999998" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="64.0" text="ID :" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="96.0" text="Nombre :" GridPane.rowIndex="1" />
+                  <Label text="Username :" GridPane.rowIndex="4" />
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="94.0" text="Apellido :" GridPane.rowIndex="2" />
+                  <Label text="Edad :" GridPane.rowIndex="3" />
+                  <Label text="Actual Password :" GridPane.rowIndex="5" />
+                  <Label text="Nueva Password :" GridPane.rowIndex="6" />
+                  <Label text="Tipo de Usuario :" GridPane.rowIndex="8" />
+                  <ComboBox fx:id="cmbTipoUsuario" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <TextField fx:id="txtId" editable="false" prefHeight="14.0" prefWidth="472.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtApellido" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Spinner fx:id="spnEdad" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtUserName" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtActualPassword" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtNuevaPassword" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Label text="Confirmar Password :" GridPane.rowIndex="7" />
+                  <TextField fx:id="txtConfirmarPassword" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </GridPane>
+         </center>
+         <top>
+            <FlowPane prefHeight="36.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="606.0" style="-fx-background-color: #1073c5;" text="Informacion Personal" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

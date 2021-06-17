@@ -6,13 +6,16 @@
 package programacionii.mechanic_workshop_system.dao;
 
 import java.io.IOException;
+import java.util.Collection;
 import programacionii.mechanic_workshop_system.pojo.User;
 
 /**
  *
  * @author MateyR
  */
-public interface UserDao extends Dao<User>
+public interface UserOnWorking<User> 
 {
- 
+    void create(User t) throws IOException;
+    int update(User t) throws IOException;
+    Collection<User> getAll() throws IOException;
 }
