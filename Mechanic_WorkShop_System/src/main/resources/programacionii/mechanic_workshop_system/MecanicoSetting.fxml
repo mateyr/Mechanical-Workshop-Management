@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="421.0" prefWidth="522.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.MecanicoSettingController">
+   <stylesheets>
+      <URL value="@/programacionii/mechanic_workshop_system/style/setting.css" />
+   </stylesheets>
+   <children>
+      <BorderPane fx:id="BorderPane" prefHeight="421.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <HBox fx:id="HBox" alignment="CENTER" prefHeight="389.0" prefWidth="623.0" spacing="50.0" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="100.0" left="120.0" right="120.0" top="100.0" />
+               </padding>
+            </HBox>
+         </center>
+         <top>
+            <FlowPane prefHeight="14.0" prefWidth="606.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="606.0" style="-fx-background-color: #1073c5;" text="Informacion Personal" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </FlowPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

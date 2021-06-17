@@ -102,6 +102,4 @@ public class InfoPersonalController implements Initializable
         cmbTipoUsuario.getSelectionModel().select(user.getUserType());
      
     }
-
-    
 }

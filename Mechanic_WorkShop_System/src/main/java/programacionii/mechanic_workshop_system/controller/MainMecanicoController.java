@@ -225,7 +225,7 @@ public class MainMecanicoController implements Initializable
     @FXML
     public void btnConfiAction(ActionEvent event) throws IOException
     {
-        Scene scene = new Scene(loadFXML("AdminSetting"));
+        Scene scene = new Scene(loadFXML("MecanicoSetting"));
         Stage stage = new Stage();
         stage.initOwner(((Node)event.getSource()).getScene().getWindow());
         stage.setScene(scene);
