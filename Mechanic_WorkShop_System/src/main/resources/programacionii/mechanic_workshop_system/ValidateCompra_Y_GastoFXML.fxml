@@ -13,10 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="programacionii.mechanic_workshop_system.controller.ValidateCompra_Y_GastoFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="710.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="programacionii.mechanic_workshop_system.controller.ValidateCompra_Y_GastoFXMLController">
    <children>
-      <GridPane layoutX="94.0" layoutY="155.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane prefHeight="710.0" prefWidth="1239.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.60003662109375" minWidth="10.0" prefWidth="66.00000762939453" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="457.99999237060547" minWidth="10.0" prefWidth="433.99999237060547" />
@@ -28,7 +27,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="tblViewContent" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <TableView fx:id="tblViewContent" prefHeight="423.0" prefWidth="681.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
               <columns>
                 <TableColumn fx:id="tblColumnNumOrden" editable="false" prefWidth="90.0" resizable="false" sortable="false" text="Num. Orden" />
                 <TableColumn fx:id="tblColumnMecanico" editable="false" prefWidth="289.0" resizable="false" sortable="false" text="Mecanico" />

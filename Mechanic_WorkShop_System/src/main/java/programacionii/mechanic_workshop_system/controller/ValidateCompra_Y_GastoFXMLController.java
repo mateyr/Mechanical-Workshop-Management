@@ -5,7 +5,11 @@
  */
 package programacionii.mechanic_workshop_system.controller;
 
+import com.google.gson.stream.JsonReader;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -22,7 +26,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import programacionii.mechanic_workshop_system.App;
-import static programacionii.mechanic_workshop_system.controller.MainController.loadFXML;
+import static programacionii.mechanic_workshop_system.controller.MainAdministradorController.loadFXML;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonOrdenCompraGastoDaoImpl;
 import programacionii.mechanic_workshop_system.pojo.OrdenCompraGasto;
 
 /**
@@ -35,6 +40,8 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
     // Posicion X: 511, Posicion Y: 244
     // Tamaño -> Altura: 300, Ancho: 500
     //setResizable(false);
+    
+    private JsonOrdenCompraGastoDaoImpl jocg;
     
     @FXML
     public TableView<OrdenCompraGasto> tblViewContent;
@@ -52,11 +59,7 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
     public Button btnCancelar;
     
     ObservableList<OrdenCompraGasto> list = FXCollections.observableArrayList(
-            new OrdenCompraGasto("1", "Ramiro", "Activo"),
-            new OrdenCompraGasto("2", "Lorenzo", "Activo"),
-            new OrdenCompraGasto("3", "Valmasceda", "Inactivo"),
-            new OrdenCompraGasto("4", "Menbreno", "Inactivo")
-    
+
     );
 
     /**
@@ -66,15 +69,16 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        tblColumnNumOrden.setReorderable(false);
-//        tblColumnMecanico.setReorderable(false);
-//        tblColumnEstado.setReorderable(false);
+        tblColumnNumOrden.setReorderable(false);
+        tblColumnMecanico.setReorderable(false);
+        tblColumnEstado.setReorderable(false);
         
-        tblColumnNumOrden.setCellValueFactory(new PropertyValueFactory<OrdenCompraGasto,String>("N° de Orden"));
-        tblColumnMecanico.setCellValueFactory(new PropertyValueFactory<OrdenCompraGasto,String>("Mecanico"));
-        tblColumnEstado.setCellValueFactory(new PropertyValueFactory<OrdenCompraGasto,String>("Estado"));
         
-        tblViewContent.setItems(list);
+        jocg = new JsonOrdenCompraGastoDaoImpl();
+        
+        JsonReader jreader = new JsonReader(new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(""))));
+        
+        
     }    
 
     @FXML
