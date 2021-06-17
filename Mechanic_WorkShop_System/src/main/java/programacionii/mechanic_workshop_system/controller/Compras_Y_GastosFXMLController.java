@@ -49,6 +49,7 @@ public class Compras_Y_GastosFXMLController implements Initializable {
         // TODO
     }    
 
+   
     @FXML
     public void btnOkAction(ActionEvent event) {
     }
