@@ -551,7 +551,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
                               </ComboBox>
-                              <Spinner fx:id="spnKms" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                              <Spinner fx:id="spnKms" editable="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <GridPane.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </GridPane.margin>
