@@ -5,6 +5,8 @@
  */
 package programacionii.mechanic_workshop_system.pojo;
 
+import java.util.Objects;
+
 /**
  *
  * @author navar
@@ -52,5 +54,32 @@ public class OrdenCompraGasto {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + Objects.hashCode(this.numeroOrden);
+        hash = 41 * hash + Objects.hashCode(this.nombreMecanico);
+        hash = 41 * hash + Objects.hashCode(this.estado);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final OrdenCompraGasto other = (OrdenCompraGasto) obj;
+        return true;
+    }
+    
+    
     
 }

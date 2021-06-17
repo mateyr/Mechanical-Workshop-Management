@@ -41,7 +41,7 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
     // Tamaño -> Altura: 300, Ancho: 500
     //setResizable(false);
     
-    private JsonOrdenCompraGastoDaoImpl jocg;
+//    private JsonOrdenCompraGastoDaoImpl jocg;
     
     @FXML
     public TableView<OrdenCompraGasto> tblViewContent;
@@ -58,9 +58,8 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
     @FXML
     public Button btnCancelar;
     
-    ObservableList<OrdenCompraGasto> list = FXCollections.observableArrayList(
-
-    );
+    private ObservableList<OrdenCompraGasto> ordenCompraGasto;
+    
 
     /**
      * Initializes the controller class.
@@ -69,16 +68,14 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tblColumnNumOrden.setReorderable(false);
-        tblColumnMecanico.setReorderable(false);
-        tblColumnEstado.setReorderable(false);
+//        tblColumnNumOrden.setReorderable(false);
+//        tblColumnMecanico.setReorderable(false);
+//        tblColumnEstado.setReorderable(false);
+        ordenCompraGasto = FXCollections.observableArrayList();
         
-        
-        jocg = new JsonOrdenCompraGastoDaoImpl();
-        
-        JsonReader jreader = new JsonReader(new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(""))));
-        
-        
+        this.tblColumnNumOrden.setCellValueFactory(new PropertyValueFactory("numeroOrden"));
+        this.tblColumnMecanico.setCellValueFactory(new PropertyValueFactory("nombreMecanico"));
+        this.tblColumnEstado.setCellValueFactory(new PropertyValueFactory("estado"));
     }    
 
     @FXML
@@ -97,6 +94,8 @@ public class ValidateCompra_Y_GastoFXMLController implements Initializable {
 
     @FXML
     public void btnCancelarAction(ActionEvent event){
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
     
 }
