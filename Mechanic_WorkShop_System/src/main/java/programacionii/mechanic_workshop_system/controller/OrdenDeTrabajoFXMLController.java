@@ -5,8 +5,14 @@
  */
 package programacionii.mechanic_workshop_system.controller;
 
+import enums.Departamentos;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -56,7 +62,7 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     @FXML
     public TextArea txtADireccion;
     @FXML
-    public ComboBox<?> cmbDepartamento;
+    public ComboBox<Departamentos> cmbDepartamento;
     @FXML
     public ComboBox<?> cmbBoColonia;
     @FXML
@@ -135,7 +141,6 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
     public TableColumn<?, ?> tblColumnCantidad;
     @FXML
     public Button btnAddProducto;
-
     /**
      * Initializes the controller class.
      */
@@ -144,8 +149,14 @@ public class OrdenDeTrabajoFXMLController implements Initializable {
         // TODO
         editFuntionTableView();
         //addImageButtons();
+        loadcomboxes();
     }
-    
+    public void loadcomboxes()
+    {
+        ObservableList<Departamentos> departamentos = FXCollections.observableArrayList(Departamentos.values());
+        this.cmbDepartamento.setItems(departamentos);
+        this.cmbDepartamento.setValue(Departamentos.Atlantico_Norte);
+    }
     private void editFuntionTableView() {
         tblColumnCodigo.setReorderable(false);
         tblColumnDescripcion.setReorderable(false);
