@@ -27,8 +27,9 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Window;
 import programacionii.mechanic_workshop_system.App;
-import programacionii.mechanic_workshop_system.enums.UserType;
+import programacionii.mechanic_workshop_system.pojo.User;
 
 /**
  * FXML Controller class
@@ -52,14 +53,14 @@ public class MainAdministradorController implements Initializable
     @FXML
     public Button btnFactura;
     
-    private String selectedStyle = "-fx-background-color: #095594;-fx-border-width:4;-fx-background-insets: 0,6;-fx-background-radius: 6px, 0px;";
-    private String normalStyle = "-fx-border-color: #1073c5;";
+    public String selectedStyle = "-fx-background-color: #095594;-fx-border-width:4;-fx-background-insets: 0,6;-fx-background-radius: 6px, 0px;";
+    public String normalStyle = "-fx-border-color: #1073c5;";
     @FXML
     public Label lblTabName;
     @FXML
     public Button btnCloseFirstTab;
     public Button btnCloseTab;   // Este lo uso para Cerrar todas la pestañas menos la primera
-    private String userType;
+    public String userType;
 
    
     /**
@@ -234,7 +235,7 @@ public class MainAdministradorController implements Initializable
         btnCloseFirstTab.setStyle("-fx-background-color: #d8d4d4");
     }
     
-    private void ConfigBtnCloseTab(Button btn)
+    public void ConfigBtnCloseTab(Button btn)
     {
         btn.setAlignment(Pos.TOP_CENTER);
         btn.setContentDisplay(ContentDisplay.TOP);
@@ -255,5 +256,29 @@ public class MainAdministradorController implements Initializable
             btn.setTextFill(Paint.valueOf("#8c8a8a"));
             btn.setStyle("-fx-background-color: #d8d4d4");
         });
+    }
+
+    @FXML
+    public void btnConfiMouseExited(MouseEvent event)
+    {
+        btnConfi.setStyle(normalStyle);
+    }
+
+    @FXML
+    public void btnConfiMouseEntered(MouseEvent event)
+    {
+        btnConfi.setStyle(selectedStyle);
+    }
+
+    @FXML
+    public void btnConfiAction(ActionEvent event) throws IOException
+    {
+        Scene scene = new Scene(loadFXML("AdminSetting"));
+        Stage stage = new Stage();
+        stage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        stage.setScene(scene);
+        stage.setResizable(false); //Para evitar que el usuario cambie el tamaño del frame.
+        stage.showAndWait();
+        
     }
 }
