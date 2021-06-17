@@ -10,12 +10,14 @@ package programacionii.mechanic_workshop_system.pojo;
  * @author navar
  */
 public class Compras {
-    private String descripcion;
-    private int cantidad;
-    private double precio;
-    private double descuento;
-    private double subTotal;
-    private double total;
+    private int id;//4
+    private String descripcion;//20
+    private int cantidad;//4
+    private double precio;//8
+    private double descuento;//8
+    private double subTotal;//8
+    private double total;//8
+    //SIZE = 60
 
     public Compras() {
     }
@@ -27,6 +29,10 @@ public class Compras {
         this.descuento = descuento;
         this.subTotal = subTotal;
         this.total = total;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public String getDescripcion() {

@@ -20,8 +20,8 @@ public class Cliente {
     private String municipio; //27
     private String BoOrColonia; //28
     private String direccion; //50
-    private Vehiculo vehiculo; //131
-    //SIZE = 410
+    private Vehiculo vehiculo; //150
+    //SIZE = 429
 
     public Cliente() {
     }
