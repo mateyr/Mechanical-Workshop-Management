@@ -7,35 +7,28 @@ package programacionii.mechanic_workshop_system.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import programacionii.mechanic_workshop_system.App;
-
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import programacionii.mechanic_workshop_system.App;
-
-import javafx.fxml.Initializable;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import programacionii.mechanic_workshop_system.dao.implementation.JsonUserDaoImpl;
+import programacionii.mechanic_workshop_system.enums.UserType;
+import programacionii.mechanic_workshop_system.pojo.User;
 
 /**
  * FXML Controller class
@@ -57,7 +50,10 @@ public class LoginController implements Initializable {
     public Button btnClose;
 
     public Button btnIngresar;
-
+    
+    private JsonUserDaoImpl jUserDao;
+    private User user = new User(1,"Uziel","Duarte","DuarteU","54321",22,UserType.Administrado);  // Para propositos didacticos
+     private List<User> users = new ArrayList<User>();
     /**
      * Initializes the controller class.
      *
@@ -67,24 +63,43 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-
+        jUserDao = new JsonUserDaoImpl();
+        
     }    
-
+  
     public void btnIngresarAction(ActionEvent event) throws IOException
     {
-      Scene scene = new Scene(new FXMLLoader(App.class.getResource("Main.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera 
-      Stage stage = new Stage();
-      btnIngresar.getScene().getWindow().hide();  // Aqui ocultamos el Login.fxml
-      stage.setScene(scene);
-      stage.setFullScreen(true);
-      stage.showAndWait();  
+      users = (List<User>) jUserDao.getAll();
+      users.stream().forEach((t) ->
+      {
+          if(t.getUsername().equals(txtUser.getText()) && t.getPassword().equals(txtPass.getText()))
+          {
+              txtPass.setText("");
+              txtUser.setText("");
+              Scene scene = null;
+              try {
+                  scene = new Scene(new FXMLLoader(App.class.getResource("Main.fxml")).load()); //No he usado el Metodo LoadFXML por que ese metodo pertenece a otra clase considero que es mejor hacerlo de esta manera
+              } catch (IOException ex) {
+                  Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+              }
+          Stage stage = new Stage();
+          btnIngresar.getScene().getWindow().hide();  // Aqui ocultamos el Login.fxml
+          stage.setScene(scene);
+          stage.setFullScreen(true);
+          stage.showAndWait();  
+          
+          }else{
+              System.out.println("No Existe tal Usuario"); //Buscar Equivalente a JOptionPane
+          }
+        
+      });
+       
     }
- 
 
     @FXML
-    public void btnCloseAction(ActionEvent event) {
+    public void btnCloseAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) btnClose.getScene().getWindow();
-        stage.close();
+        stage.close();   
     }
 
 }
